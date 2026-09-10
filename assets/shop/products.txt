@@ -1,0 +1,35 @@
+# Souvla Kings shop catalogue
+#
+#   id | group | name | price | image | blurb | addon
+#
+# price   a number like 1099, or POA for "price on call"
+# image   a file in assets/shop/, icon:NAME for a line drawing, or
+#         soon = show a 'photo coming' tile until you send one
+#         (icons: motor, motor-xl, chain-motor, dial, skewer, skewer-xl,
+#          skewer-small, fork, grill, tray, disc, strap, riser)
+#
+# To change a price: edit the number, then run  python3 build.py
+# To add a photo: drop it in assets/shop/ and put the filename in the image column
+# addon   optional. The id of an extra offered as a tick box on that product.
+
+souvla-open      | Souvlas | Open Souvla        | 649  | soon | 700 x 400 mm. 3 large skewers, 6 skewer forks, 11 souvlaki skewers, 2 grills, charcoal tray, geared motor, speed controller.
+souvla-hooded    | Souvlas | Hooded Souvla      | 849  | soon | 700 x 400 mm, with the hood. Same kit as the Open Souvla.
+souvla-chain     | Souvlas | Large Chain Drive  | 1099 | ../bbq-1.webp | 900 x 600 mm. 11 large skewers, 12 forks, 2 grills, charcoal tray, large geared motor. | part-riser
+souvla-mega      | Souvlas | Mega Souvla        | 1399 | ../bbq-3.webp | Chain drive with a full rotisserie over it. XL motor, chain motor, 12 mm Mega skewer, 2 speed controllers, yeeros discs.
+souvla-double    | Souvlas | Double Mega        | 1699 | soon | 900 x 600 mm. 2 XL motors, chain motor, 3 speed controllers, 2 XL skewers, 4 yeeros discs, back straps.
+souvla-triple    | Souvlas | Triple Mega        | POA  | soon | Three spits across, built to order for clubs, fetes and catering.
+
+part-riser       | Parts and spares | Hi rise conversion    | 99  | icon:riser        | Fitted to the Large Chain Drive so the rack lifts clear of the coals.
+part-motor       | Parts and spares | Geared motor          | POA | icon:motor        | The standard geared motor, as fitted to the Open and Hooded Souvla.
+part-motor-xl    | Parts and spares | XL geared motor       | POA | icon:motor-xl     | The heavy motor off the Mega and Double Mega.
+part-chain-motor | Parts and spares | Geared chain motor    | POA | icon:chain-motor  | Drives the row of chain skewers.
+part-controller  | Parts and spares | Speed controller      | POA | icon:dial         | Sets the turn speed. One per motor.
+part-skewer-lg   | Parts and spares | Large skewer          | POA | icon:skewer       | For whole cuts and the big pieces.
+part-skewer-sm   | Parts and spares | Souvlaki skewer, 8 mm | POA | icon:skewer-small | The short ones that sit across the rail.
+part-skewer-xl   | Parts and spares | Mega skewer, 12 mm    | POA | icon:skewer-xl    | The thick XL spit off the Mega and Double Mega.
+part-fork        | Parts and spares | Skewer forks          | POA | icon:fork         | Lock a cut on so it turns as one piece. Sold in pairs.
+part-fork-lg     | Parts and spares | Large forks           | POA | icon:fork         | The bigger forks for the XL skewers.
+part-grill       | Parts and spares | Grill                 | POA | icon:grill        | Sits over the coals for souvlakia, halloumi and pita.
+part-tray        | Parts and spares | Charcoal tray         | POA | icon:tray         | The removable tray. Lift it out and the clean up is done.
+part-disc        | Parts and spares | Yeeros discs          | POA | icon:disc         | Hold a stacked yeeros on the XL skewer. Sold in pairs.
+part-strap       | Parts and spares | Back straps           | POA | icon:strap        | Strap a whole side down flat against the spit.

@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — Souvla Kings</title>
+<meta name="description" content="Souvla Kings souvlas, motors, skewers, forks, grills, trays and yeeros gear. Build your order and send it through in one text. Call or text 0429 543 435.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap">
+<style>
+:root{
+  --paper:#fbfcfe;--paper-2:#f1f3f8;--paper-3:#e6e9f1;--steel:#d3d8e4;--steel-2:#b9c0d0;
+  --ink:#11141c;--ink-2:#454b5c;--ink-3:#6b7284;
+  --blue:#0012fb;--blue-deep:#0410c4;--blue-ink:#000b8f;--blue-tint:#eceefe;--char:#12141b;
+  --ease:cubic-bezier(.16,1,.3,1);--sans:'Archivo','Helvetica Neue',Arial,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+p{margin:0}a{color:inherit}button{font:inherit;color:inherit}
+h1,h2,h3{margin:0;font-weight:800;line-height:1.03;letter-spacing:-.018em;font-stretch:112%;text-wrap:balance}
+h1{font-size:clamp(2.3rem,4.8vw,4rem);font-weight:900}
+h2{font-size:clamp(1.7rem,3.2vw,2.6rem)}
+h3{font-size:1.2rem;letter-spacing:-.008em;font-stretch:105%}
+.wrap{width:min(1240px,100% - 2*clamp(1.1rem,4vw,3rem));margin-inline:auto}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* header */
+.top{position:sticky;top:0;z-index:40;background:color-mix(in oklab,var(--paper) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--steel)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.6rem}
+.brand{display:flex;align-items:center;text-decoration:none;flex:none}
+.brand img{height:clamp(40px,4.4vw,56px);width:auto}
+.nav{display:flex;gap:1.35rem;list-style:none;margin:0;padding:0;font-weight:600;font-size:.96rem}
+.nav a{text-decoration:none;color:var(--ink-2);padding:.3rem 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.nav a:hover,.nav a[aria-current=page]{color:var(--ink);border-color:var(--blue)}
+.headright{display:flex;align-items:center;gap:.5rem}
+@media (max-width:1100px){.nav{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;font-size:1rem;text-decoration:none;padding:.8rem 1.3rem;border-radius:2px;border:1.5px solid transparent;line-height:1;cursor:pointer;white-space:nowrap;transition:background .18s,color .18s,border-color .18s,transform .18s var(--ease)}
+.btn-primary{background:var(--blue-deep);color:#fff}
+.btn-primary:hover{background:var(--blue);transform:translateY(-1px)}
+.btn-line{border-color:var(--steel-2);color:var(--ink);background:#fff}
+.btn-line:hover{border-color:var(--ink)}
+.btn-white{background:#fff;color:var(--blue-ink)}
+.btn-ghost-white{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-ghost-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.btn-sm{padding:.58rem .95rem;font-size:.93rem}
+.btn[disabled]{opacity:.5;cursor:default}
+.rule{display:flex;align-items:center;gap:.8rem;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-ink);margin-bottom:1rem}
+.rule::after{content:"";height:1.5px;flex:1;background:var(--steel)}
+
+/* cart button */
+.cartbtn{position:relative}
+.cartbtn .count{display:none;position:absolute;top:-.42rem;right:-.42rem;min-width:1.35rem;height:1.35rem;padding:0 .3rem;border-radius:999px;background:var(--ink);color:#fff;font-size:.78rem;font-weight:800;line-height:1.35rem;text-align:center}
+.cartbtn.has .count{display:block}
+
+/* intro */
+.intro{padding-block:clamp(2.2rem,4.4vw,3.4rem) clamp(1.4rem,2.6vw,2.2rem);background:linear-gradient(180deg,var(--paper),var(--paper-2))}
+.intro .g{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:.6rem clamp(2rem,5vw,4.5rem);align-items:end}
+.intro .rule{grid-column:1/-1}
+.intro .sub{color:var(--ink-2);font-size:1.1rem;padding-bottom:.3rem}
+.ticks{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin-top:1.3rem;padding:0;list-style:none;color:var(--ink-2);font-size:.96rem}
+.ticks li{display:flex;align-items:center;gap:.45rem}
+.ticks svg{width:1.05rem;height:1.05rem;flex:none;color:var(--blue)}
+@media (max-width:860px){.intro .g{grid-template-columns:1fr}.intro .sub{padding-bottom:0;margin-top:.7rem}}
+
+/* sections */
+section{padding-block:clamp(2.6rem,5vw,4.4rem)}
+.shead{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:.5rem clamp(2rem,5vw,4.5rem);align-items:end;margin-bottom:clamp(1.6rem,3vw,2.6rem)}
+.shead .rule{grid-column:1/-1}
+.shead .sub{color:var(--ink-2);font-size:1.06rem;padding-bottom:.3rem}
+@media (max-width:860px){.shead{grid-template-columns:1fr}.shead .sub{padding-bottom:0;margin-top:.6rem}}
+
+/* souvla cards: photo left, buy box right */
+.machines{display:grid;gap:1px;background:var(--steel);border:1px solid var(--steel)}
+.mach{background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.2rem,3vw,2.6rem);padding:clamp(1.2rem,2.4vw,2rem)}
+.mach-img{background:var(--paper-2);border:1px solid var(--steel);display:grid;place-items:center;padding:.8rem;align-self:start}
+.mach-img img{width:100%;height:auto}
+.mach-img.soon{min-height:190px;color:var(--ink-3)}
+.mach-img.soon span{display:grid;justify-items:center;gap:.6rem}
+.mach-img.soon svg{width:auto;height:54px;opacity:.55}
+.mach-img.soon b{font-weight:700;font-size:.88rem;letter-spacing:.09em;text-transform:uppercase}
+.mach h3{font-size:clamp(1.35rem,2.1vw,1.75rem);font-weight:800}
+.mach .dims{color:var(--ink-3);font-weight:600;font-size:.94rem;margin-top:.2rem}
+.mach .blurb{color:var(--ink-2);font-size:.99rem;margin-top:.7rem;max-width:52ch}
+.priceline{display:flex;align-items:baseline;flex-wrap:wrap;gap:.5rem .8rem;margin-top:1rem;padding-top:.95rem;border-top:2px solid var(--ink)}
+.price{font-weight:900;font-size:clamp(1.9rem,3vw,2.5rem);letter-spacing:-.03em;font-stretch:112%;line-height:1}
+.price.poa{font-size:1.15rem;font-weight:800;color:var(--ink-2);letter-spacing:0}
+.priceline .note{font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-ink)}
+.addon{display:flex;gap:.6rem;align-items:flex-start;margin-top:.9rem;padding:.7rem .8rem;background:var(--blue-tint);border:1px solid color-mix(in oklab,var(--blue) 22%,#fff);border-radius:2px;cursor:pointer;font-size:.96rem}
+.addon input{margin:.25rem 0 0;width:1.05rem;height:1.05rem;accent-color:var(--blue-deep);flex:none}
+.addon b{font-weight:700}
+.buyrow{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:1.1rem}
+.qty{display:flex;align-items:center;border:1.5px solid var(--steel-2);border-radius:2px;background:#fff}
+.qty button{width:2.4rem;height:2.6rem;border:0;background:none;font-size:1.15rem;font-weight:700;cursor:pointer;color:var(--ink-2)}
+.qty button:hover{color:var(--ink);background:var(--paper-2)}
+.qty input{width:2.6rem;height:2.6rem;border:0;text-align:center;font-weight:800;font-variant-numeric:tabular-nums;font-size:1rem;background:none;-moz-appearance:textfield}
+.qty input::-webkit-outer-spin-button,.qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+@media (max-width:820px){.mach{grid-template-columns:1fr}}
+
+/* parts grid */
+.parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--steel);border:1px solid var(--steel)}
+.part{background:#fff;padding:1.1rem 1.15rem 1.15rem;display:grid;grid-template-rows:auto auto 1fr auto;gap:.35rem}
+.part .ico{width:100%;height:88px;display:grid;place-items:center;background:var(--paper-2);border:1px solid var(--steel);margin-bottom:.7rem}
+.part .ico svg{width:auto;height:60px;color:var(--ink-2)}
+.part .ico img{max-height:76px;width:auto}
+.part b{font-weight:800;font-size:1.02rem;letter-spacing:-.008em}
+.part p{color:var(--ink-2);font-size:.93rem;line-height:1.45}
+.part .foot{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--steel)}
+.part .p{font-weight:900;font-size:1.15rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.part .p.poa{font-size:.92rem;font-weight:700;color:var(--ink-2);letter-spacing:0}
+
+/* cart drawer */
+.scrim{position:fixed;inset:0;background:rgba(10,12,18,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:60}
+.scrim.on{opacity:1;pointer-events:auto}
+.cart{position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);background:var(--paper);border-left:1px solid var(--steel);transform:translateX(100%);transition:transform .3s var(--ease);z-index:61;display:flex;flex-direction:column}
+.cart.on{transform:none}
+.cart-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-bottom:1px solid var(--steel)}
+.cart-head h2{font-size:1.35rem}
+.xbtn{width:2.3rem;height:2.3rem;border:1.5px solid var(--steel-2);background:#fff;border-radius:2px;font-size:1.2rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.xbtn:hover{border-color:var(--ink)}
+.cart-body{flex:1;overflow-y:auto;padding:.4rem 1.1rem}
+.citem{display:grid;grid-template-columns:1fr auto;gap:.3rem .8rem;padding:.9rem 0;border-bottom:1px solid var(--steel)}
+.citem b{font-weight:700;font-size:1rem}
+.citem .cp{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.citem .cp.poa{font-weight:700;font-size:.88rem;color:var(--ink-2)}
+.citem .crow{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:.35rem}
+.citem .rm{border:0;background:none;color:var(--ink-3);font-size:.9rem;text-decoration:underline;cursor:pointer;padding:0}
+.citem .rm:hover{color:var(--blue-ink)}
+.cart-empty{padding:2.2rem .4rem;text-align:center;color:var(--ink-2)}
+.cart-foot{border-top:1px solid var(--steel);padding:1rem 1.1rem calc(1rem + env(safe-area-inset-bottom));background:#fff;display:grid;gap:.6rem}
+.totrow{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.totrow .lb{font-weight:700;font-size:.85rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.totrow .tot{font-weight:900;font-size:1.75rem;letter-spacing:-.028em;font-stretch:112%;font-variant-numeric:tabular-nums}
+.cart-note{color:var(--ink-2);font-size:.9rem;line-height:1.45}
+.cart-foot .btn{width:100%}
+
+/* band + footer */
+.band{background:var(--blue-deep);color:#fff;padding-block:clamp(2.4rem,4.6vw,3.6rem)}
+.band h2{color:#fff}
+.band p{color:rgba(255,255,255,.85);font-size:1.1rem;max-width:56ch;margin-top:.8rem}
+.band .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
+.sitefoot{background:var(--char);color:#fff;padding-block:clamp(2.4rem,4.6vw,3.6rem) 1.4rem}
+.sitefoot .top-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end}
+.fbadge{display:inline-grid;place-items:center;background:#fff;border-radius:50%;padding:1.1rem;width:clamp(110px,13vw,150px);aspect-ratio:1}
+.fbadge img{width:100%;height:auto}
+.callnum{display:inline-block;font-weight:900;font-size:clamp(2.3rem,6.6vw,4.6rem);line-height:.95;letter-spacing:-.035em;font-stretch:112%;text-decoration:none;font-variant-numeric:tabular-nums;transition:color .18s}
+.callnum:hover{color:#8f9bff}
+.sitefoot .sub{color:rgba(255,255,255,.72);margin-top:.8rem;max-width:48ch}
+.sitefoot .fcta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
+.fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 1.5rem;margin-top:clamp(2rem,3.6vw,3rem);padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.55);font-size:.87rem}
+@media (max-width:700px){.sitefoot .top-row{grid-template-columns:1fr}.fbadge{justify-self:start}}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:1.2rem;transform:translate(-50%,140%);background:var(--ink);color:#fff;padding:.75rem 1.1rem;border-radius:3px;font-weight:600;font-size:.96rem;z-index:70;transition:transform .3s var(--ease);box-shadow:0 12px 30px -12px rgba(0,0,0,.6)}
+.toast.on{transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .cart,.scrim,.toast,.btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Souvla Kings, home">
+      <img src="assets/logo.webp" alt="Souvla Kings, Greek BBQ" width="1430" height="1100">
+    </a>
+    <ul class="nav">
+      <li><a href="index.html#range">The range</a></li>
+      <li><a href="shop.html" aria-current="page">Shop</a></li>
+      <li><a href="index.html#parts">Every part</a></li>
+      <li><a href="gallery.html">Souvla Days</a></li>
+      <li><a href="index.html#delivery">Delivery</a></li>
+      <li><a href="index.html#order">Order</a></li>
+    </ul>
+    <div class="headright">
+      <button class="btn btn-line btn-sm cartbtn" id="cartBtn" type="button" aria-label="Open your order">Order<span class="count" id="cartCount">0</span></button>
+      <a class="btn btn-primary btn-sm" href="tel:+61429543435">0429 543 435</a>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap g">
+    <p class="rule">Shop</p>
+    <h1>Machines, motors and spares.</h1>
+    <p class="sub">Build your order here and send it through in one text. We confirm the price, the freight and when it is ready, then you pay. Nothing is charged on this page.</p>
+    <ul class="ticks">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Free assembly</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Free Sydney delivery</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Shipped Australia-wide</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Built in Sydney</li>
+    </ul>
+  </div>
+</section>
+
+<section id="souvlas">
+  <div class="wrap">
+    <div class="shead">
+      <p class="rule">Souvlas</p>
+      <h2>The machines.</h2>
+      <p class="sub">Every one is welded from stainless steel and comes with its skewers, forks, grills and a removable charcoal tray.</p>
+    </div>
+__MACHINES__
+  </div>
+</section>
+
+<section id="spares" style="background:#fff;border-block:1px solid var(--steel)">
+  <div class="wrap">
+    <div class="shead">
+      <p class="rule">Parts and spares</p>
+      <h2>Sold separately.</h2>
+      <p class="sub">Motors, skewers, forks, grills, trays and yeeros gear, to suit any of the machines. Tell us which model you have when you send the order.</p>
+    </div>
+__PARTS__
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>How ordering works.</h2>
+    <p>Add what you want, then send the order as a text. We ring you back with the price for the spares, the freight to your address and when it will be ready. Payment is arranged then, not on this page.</p>
+    <div class="cta">
+      <a class="btn btn-white" href="tel:+61429543435">Call 0429 543 435</a>
+      <a class="btn btn-ghost-white" href="sms:+61429543435">Send a text</a>
+    </div>
+  </div>
+</section>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <div class="top-row">
+      <div>
+        <a class="callnum" href="tel:+61429543435">0429&nbsp;543&nbsp;435</a>
+        <p class="sub">Call or text to order, ask about a size, or check what is ready to go. Built in Sydney, shipped Australia-wide.</p>
+        <div class="fcta">
+          <a class="btn btn-white" href="tel:+61429543435">Call now</a>
+          <a class="btn btn-ghost-white" href="index.html">Back to the site</a>
+        </div>
+      </div>
+      <span class="fbadge"><img src="assets/logo.webp" alt="" aria-hidden="true" width="1430" height="1100"></span>
+    </div>
+    <div class="fine">
+      <span>Souvla Kings BBQ &amp; Rotisseries Pty Ltd &middot; ABN 43 678 822 565 &middot; Sydney, NSW</span>
+      <span>Stainless steel souvlas for all your BBQ needs</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="cart" id="cart" aria-label="Your order" aria-hidden="true">
+  <div class="cart-head">
+    <h2>Your order</h2>
+    <button class="xbtn" id="cartClose" type="button" aria-label="Close">&times;</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-foot">
+    <div class="totrow"><span class="lb">Machines subtotal</span><span class="tot tnum" id="cartTotal">$0</span></div>
+    <p class="cart-note" id="cartNote">Delivery and assembly are free in Sydney metro. Freight elsewhere is quoted when we ring you back.</p>
+    <a class="btn btn-primary" id="cartSend" href="sms:+61429543435">Send this order by text</a>
+    <button class="btn btn-line" id="cartCopy" type="button">Copy the order</button>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+"use strict";
+const PRODUCTS = __DATA__;
+const BY_ID = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
+const KEY = 'sk-order';
+const PHONE = '+61429543435';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const money = n => '$' + n.toLocaleString('en-AU');
+
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { cart = {}; }
+for (const id of Object.keys(cart)) if (!BY_ID[id] || !(cart[id] > 0)) delete cart[id];
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} };
+
+const els = {
+  btn: $('#cartBtn'), count: $('#cartCount'), body: $('#cartBody'), total: $('#cartTotal'),
+  note: $('#cartNote'), send: $('#cartSend'), copy: $('#cartCopy'),
+  panel: $('#cart'), scrim: $('#scrim'), toast: $('#toast')
+};
+
+function lines() {
+  return Object.entries(cart).map(([id, q]) => ({ p: BY_ID[id], q })).filter(o => o.p);
+}
+function totals() {
+  let sum = 0, poa = 0;
+  for (const { p, q } of lines()) p.price === null ? poa += q : sum += p.price * q;
+  return { sum, poa };
+}
+function orderText() {
+  const rows = lines().map(({ p, q }) =>
+    `${q} x ${p.name}` + (p.price === null ? ' (price on call)' : ` - ${money(p.price * q)}`));
+  if (!rows.length) return '';
+  const { sum } = totals();
+  return 'Souvla Kings order\n' + rows.join('\n') +
+    (sum ? `\nMachines subtotal ${money(sum)}` : '') +
+    '\n\nName:\nSuburb and postcode:';
+}
+function render() {
+  const ls = lines();
+  const n = ls.reduce((a, o) => a + o.q, 0);
+  els.count.textContent = n;
+  els.btn.classList.toggle('has', n > 0);
+  els.btn.setAttribute('aria-label', n ? `Open your order, ${n} item${n > 1 ? 's' : ''}` : 'Open your order');
+
+  if (!ls.length) {
+    els.body.innerHTML = '<p class="cart-empty">Nothing in the order yet.<br>Add a machine or a spare part.</p>';
+  } else {
+    els.body.innerHTML = ls.map(({ p, q }) => `
+      <div class="citem">
+        <b>${p.name}</b>
+        <span class="cp${p.price === null ? ' poa' : ''}">${p.price === null ? 'Price on call' : money(p.price * q)}</span>
+        <div class="crow">
+          <span class="qty">
+            <button type="button" data-dec="${p.id}" aria-label="One fewer ${p.name}">&minus;</button>
+            <input type="number" min="1" max="99" value="${q}" data-qty="${p.id}" aria-label="Quantity of ${p.name}">
+            <button type="button" data-inc="${p.id}" aria-label="One more ${p.name}">+</button>
+          </span>
+          <button class="rm" type="button" data-rm="${p.id}">Remove</button>
+        </div>
+      </div>`).join('');
+  }
+  const { sum, poa } = totals();
+  els.total.textContent = money(sum);
+  els.note.textContent = poa
+    ? `${poa === 1 ? 'One item is' : poa + ' items are'} priced on call, so ${poa === 1 ? 'it is' : 'they are'} not in that figure. Delivery and assembly are free in Sydney metro; freight elsewhere is quoted when we ring back.`
+    : 'Delivery and assembly are free in Sydney metro. Freight elsewhere is quoted when we ring you back.';
+  const t = orderText();
+  els.send.href = t ? `sms:${PHONE}?&body=${encodeURIComponent(t)}` : `sms:${PHONE}`;
+  els.copy.disabled = !t;
+  save();
+}
+function add(id, q = 1) {
+  if (!BY_ID[id]) return;
+  cart[id] = Math.min(99, (cart[id] || 0) + q);
+  render();
+  toast(`${BY_ID[id].name} added`);
+}
+let toastT;
+function toast(msg) {
+  els.toast.textContent = msg;
+  els.toast.classList.add('on');
+  clearTimeout(toastT);
+  toastT = setTimeout(() => els.toast.classList.remove('on'), 2200);
+}
+function openCart(open) {
+  els.panel.classList.toggle('on', open);
+  els.scrim.classList.toggle('on', open);
+  els.panel.setAttribute('aria-hidden', String(!open));
+  if (open) els.panel.querySelector('.xbtn').focus(); else els.btn.focus();
+}
+
+/* add to order buttons on the page */
+$$('[data-add]').forEach(b => b.addEventListener('click', () => {
+  const id = b.dataset.add;
+  const card = b.closest('.mach, .part');
+  const qtyIn = card && card.querySelector('[data-cardqty]');
+  const q = qtyIn ? Math.max(1, Math.min(99, parseInt(qtyIn.value, 10) || 1)) : 1;
+  add(id, q);
+  const extra = card && card.querySelector('[data-addon]:checked');
+  if (extra) add(extra.dataset.addon, q);
+}));
+$$('.mach .qty button, .part .qty button').forEach(b => b.addEventListener('click', () => {
+  const card = b.closest('.mach, .part'), input = card.querySelector('[data-cardqty]');
+  if (!input) return;
+  const step = b.dataset.step === 'up' ? 1 : -1;
+  input.value = Math.max(1, Math.min(99, (parseInt(input.value, 10) || 1) + step));
+}));
+
+/* cart drawer */
+els.body.addEventListener('click', e => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.inc) { cart[t.dataset.inc] = Math.min(99, cart[t.dataset.inc] + 1); render(); }
+  else if (t.dataset.dec) { cart[t.dataset.dec] = Math.max(0, cart[t.dataset.dec] - 1); if (!cart[t.dataset.dec]) delete cart[t.dataset.dec]; render(); }
+  else if (t.dataset.rm) { delete cart[t.dataset.rm]; render(); }
+});
+els.body.addEventListener('change', e => {
+  const i = e.target.closest('[data-qty]'); if (!i) return;
+  const q = Math.max(1, Math.min(99, parseInt(i.value, 10) || 1));
+  cart[i.dataset.qty] = q; render();
+});
+els.btn.addEventListener('click', () => openCart(true));
+$('#cartClose').addEventListener('click', () => openCart(false));
+els.scrim.addEventListener('click', () => openCart(false));
+addEventListener('keydown', e => { if (e.key === 'Escape' && els.panel.classList.contains('on')) openCart(false); });
+els.copy.addEventListener('click', async () => {
+  const t = orderText(); if (!t) return;
+  try { await navigator.clipboard.writeText(t); toast('Order copied'); }
+  catch (e) { toast('Could not copy. Take a screenshot instead.'); }
+});
+
+render();
+})();
+</script>
+</body>
+</html>
