@@ -92,17 +92,8 @@ h3{font-size:1.28rem;letter-spacing:-.008em;font-stretch:105%}
 .shot img{width:100%;height:auto}
 .shot .refl{position:absolute;left:0;top:100%;width:100%;transform:scaleY(-1);transform-origin:top;opacity:.22;filter:blur(1.2px);-webkit-mask-image:linear-gradient(to bottom,#000,transparent 42%);mask-image:linear-gradient(to bottom,#000,transparent 42%);pointer-events:none}
 .stage.swapping .shot{opacity:0;transform:translateX(-26px)}
-/* the motor is running: a sprocket on the drive, and light travelling round each skewer handle */
-.spins{position:absolute;inset:0;pointer-events:none;z-index:2}
-.gl{position:absolute;left:var(--x);top:var(--y);width:var(--w);aspect-ratio:var(--a);transform:translate(-50%,-50%) rotate(var(--r));border-radius:44%;overflow:hidden;mix-blend-mode:screen}
-.gl::before{content:"";position:absolute;inset:-6% -40%;background:linear-gradient(to right,transparent 26%,rgba(255,255,255,.30) 42%,rgba(255,255,255,.62) 50%,rgba(255,255,255,.30) 58%,transparent 74%);animation:sweep 3.4s linear infinite;animation-delay:var(--d)}
-@keyframes sweep{from{transform:translateX(-108%)}to{transform:translateX(108%)}}
-.sprk{position:absolute;left:var(--x);top:var(--y);width:var(--s);aspect-ratio:1;transform:translate(-50%,-50%);animation:spin 6.4s linear infinite;opacity:.96;filter:drop-shadow(0 1px 2px rgba(10,14,24,.4))}
-.stage.swapping .spins{opacity:0}
-.spins{transition:opacity .3s}
 .badge{position:absolute;top:-2%;right:0;width:clamp(94px,10vw,134px);animation:spin 30s linear infinite;pointer-events:none}
 .badge text{font-weight:700;font-size:14px;letter-spacing:.085em;fill:var(--blue-ink);text-transform:uppercase}
-.badge .teeth{fill:none;stroke:var(--blue);stroke-width:7;stroke-dasharray:4 11.6}
 @keyframes spin{to{transform:rotate(360deg)}}
 .picker{display:flex;flex-wrap:wrap;gap:.5rem}
 .pick{display:flex;align-items:center;gap:.6rem;padding:.55rem .9rem .55rem .6rem;border:1.5px solid var(--steel);background:#fff;border-radius:2px;cursor:pointer;font-weight:600;font-size:.97rem;text-align:left;transition:border-color .16s,background .16s,color .16s}
@@ -243,8 +234,7 @@ section{padding-block:clamp(3.4rem,6.6vw,6rem)}
 .rv{transition:transform .8s var(--ease)}
 .rv:not(.in){transform:translateY(14px)}
 @media (prefers-reduced-motion:reduce){
-  .badge,.sprk,.gl::before{animation:none}
-  .gl{display:none}
+  .badge{animation:none}
   .rv,.rv:not(.in){transform:none;transition:none}
   html{scroll-behavior:auto}
   .shot,.stage.swapping .shot{transition:none;transform:none}
@@ -294,7 +284,6 @@ section{padding-block:clamp(3.4rem,6.6vw,6rem)}
         <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
           <defs><path id="ring" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
           <text><textPath href="#ring" textLength="477" lengthAdjust="spacingAndGlyphs">Souvla Kings · Sydney · All stainless steel ·</textPath></text>
-          <circle class="teeth" cx="100" cy="100" r="63"/>
           <circle cx="100" cy="100" r="56" fill="none" stroke="var(--blue)" stroke-width="1.5"/>
           <path transform="translate(70,80) scale(0.95)" d="M2 42V18h7v-8h6v8h8V6h6v12h8V6h6v12h8v-8h6v8h5v24z" fill="var(--blue)"/>
         </svg>
@@ -302,7 +291,6 @@ section{padding-block:clamp(3.4rem,6.6vw,6rem)}
         <div class="shot" id="shot">
           <img id="shotImg" data-img="1" alt="Souvla Kings chain drive souvla: eleven black-handled skewers across a stainless body, geared motor on the left, height crank on the right, laser-cut name in the front rail" width="1448" height="1086">
           <img class="refl" id="shotRefl" data-img="1" alt="" aria-hidden="true" width="1448" height="1086">
-          <div class="spins" id="spins" aria-hidden="true"></div>
         </div>
       </div>
       <div class="picker" role="tablist" aria-label="Choose a model">
@@ -651,37 +639,6 @@ const MODELS = [
   { img: 3, alt: 'Mega Souvla: twin upright posts carrying the XL rotisserie skewer and its own motor above eleven chain skewers, controller box on the front' }
 ];
 const stage = $('#stage'), shotImg = $('#shotImg'), shotRefl = $('#shotRefl'), picks = $$('.pick');
-
-/* where the drive and the skewer handles sit in each photo, as a % of the image */
-const SPIN = [
-  { w: '3.2%', a: 0.40, r: '13deg',
-    gears: [{ x: 86.6, y: 46.4, s: 4.9 }],
-    handles: [[19.02,43.9],[25.15,44.1],[31.49,44.8],[37.73,45.8],[43.74,46.0],[49.44,45.8],[55.20,45.9],[61.33,45.8],[67.24,44.9],[73.31,44.6],[78.80,44.4]] },
-  { w: '2.3%', a: 0.42, r: '22deg',
-    gears: [{ x: 85.4, y: 35.4, s: 4.6 }],
-    handles: [[27.56,50.8],[30.73,50.2],[35.01,50.0],[38.95,51.1],[43.23,50.6],[46.89,50.3],[50.69,49.6],[54.56,50.4],[58.29,50.4],[61.74,50.6],[65.40,49.9],[69.41,50.1]] }
-];
-const SPROCKET = '<svg viewBox="0 0 100 100"><defs><linearGradient id="skg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaeef3"/><stop offset=".42" stop-color="#b4bac5"/><stop offset="1" stop-color="#767d89"/></linearGradient></defs><g fill="url(#skg)" stroke="#5b626e" stroke-width="1.7" stroke-linejoin="round">TEETH<circle cx="50" cy="50" r="31"/></g><circle cx="50" cy="50" r="21" fill="none" stroke="#8b919d" stroke-width="1.3"/><circle cx="50" cy="50" r="8.5" fill="#99a0ab" stroke="#5b626e" stroke-width="1.6"/><circle cx="50" cy="50" r="3.2" fill="#474c58"/></svg>';
-function teeth(n) {
-  let out = '';
-  for (let i = 0; i < n; i++) {
-    const a = i * 360 / n;
-    out += `<rect x="46.4" y="10" width="7.2" height="12" rx="2.2" transform="rotate(${a} 50 50)"/>`;
-  }
-  return out;
-}
-const spins = $('#spins');
-function renderSpins(i) {
-  const cfg = SPIN[i]; if (!cfg || !spins) return;
-  let h = '';
-  for (const g of cfg.gears)
-    h += `<span class="sprk" style="--x:${g.x}%;--y:${g.y}%;--s:${g.s}%">${SPROCKET.replace('TEETH', teeth(14))}</span>`;
-  cfg.handles.forEach(([x, y], k) => {
-    h += `<span class="gl" style="--x:${x}%;--y:${y}%;--w:${cfg.w};--a:${cfg.a};--r:${cfg.r};--d:${(-k * 0.07).toFixed(2)}s"></span>`;
-  });
-  spins.innerHTML = h;
-}
-renderSpins(0);
 let cur = 0, busy = false;
 picks.forEach(p => p.addEventListener('click', () => {
   const i = +p.dataset.model; if (i === cur || busy) return; busy = true; cur = i;
@@ -689,7 +646,6 @@ picks.forEach(p => p.addEventListener('click', () => {
   stage.classList.add('swapping');
   setTimeout(() => {
     shotImg.src = IMG[MODELS[i].img]; shotRefl.src = IMG[MODELS[i].img]; shotImg.alt = MODELS[i].alt;
-    renderSpins(i);
     stage.classList.remove('swapping'); busy = false;
   }, reduced ? 0 : 300);
 }));
