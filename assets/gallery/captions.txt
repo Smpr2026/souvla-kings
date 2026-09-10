@@ -1,0 +1,6 @@
+# One line per photo:  filename | caption
+# Anything after a # is ignored. Photos with no line here just show without a caption.
+# To add photos: drop them in this folder, add a line, then run:  python3 build.py
+
+01-on-the-deck.jpg | Chicken, lamb and a pork belly roll turning together, with pita warming on the plate
+02-lamb-on-the-coals.jpg | Lamb going over the coals with the hood up
