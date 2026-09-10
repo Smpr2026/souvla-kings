@@ -15,21 +15,36 @@
 souvla-open      | Souvlas | Open Souvla        | 649  | soon | 700 x 400 mm. 3 large skewers, 6 skewer forks, 11 souvlaki skewers, 2 grills, charcoal tray, geared motor, speed controller.
 souvla-hooded    | Souvlas | Hooded Souvla      | 849  | soon | 700 x 400 mm, with the hood. Same kit as the Open Souvla.
 souvla-chain     | Souvlas | Large Chain Drive  | 1099 | ../bbq-1.webp | 900 x 600 mm. 11 large skewers, 12 forks, 2 grills, charcoal tray, large geared motor. | part-riser
-souvla-mega      | Souvlas | Mega Souvla        | 1399 | ../bbq-3.webp | 900 x 600 mm. Chain drive with a full rotisserie over it. XL motor, chain motor, 12 mm Mega skewer, 2 speed controllers, yeeros discs.
-souvla-double    | Souvlas | Double Mega        | 1699 | soon | 900 x 600 mm. 2 XL motors, chain motor, 3 speed controllers, 2 XL skewers, 4 yeeros discs, back straps.
+souvla-mega      | Souvlas | Mega Souvla        | 1399 | ../bbq-3.webp | 900 x 600 mm. Chain drive with a full rotisserie over it. XL geared motor and a geared chain motor, 12 mm Mega skewer, 2 speed controllers, 11 x 8 mm skewers, 2 large forks, 12 skewer forks, 2 grills, 2 yeeros discs, removable charcoal tray.
+souvla-double    | Souvlas | Double Mega        | 1699 | soon | 900 x 600 mm. 2 XL motors and a chain motor, 3 speed controllers, 2 XL skewers, 4 large forks, 2 back straps, 4 yeeros discs, 11 chain skewers, 12 chain skewer forks, 2 large grills.
 souvla-triple    | Souvlas | Triple Mega        | POA  | soon | Three spits across, built to order for clubs, fetes and catering.
+# ---------------------------------------------------------------------------
+# Spare part prices set 11 Sept 2026 from what Australian sellers charge.
+# Checked: Flaming Coals, Dizzy Lamb, The BBQ Store, Cyprus Grill, Sydney BBQs,
+# plus their eBay and Amazon AU storefronts. All figures are GST inclusive.
+#
+# TWO ARE GUESSES, because nobody in Australia sells them:
+#   part-chain-motor   no one sells a chain drive motor on its own
+#   part-skewer-xl     no one sells a bare 12 mm skewer
+# Change those two first.
+#
+# Everything else sits mid market. Cyprus Grill at Prestons sells the same
+# stock 15-25% dearer than the Melbourne sites, so there is room to lift these
+# if you want to.
+# ---------------------------------------------------------------------------
 
-part-riser       | Parts and spares | Hi rise conversion    | 99  | icon:riser        | Fitted to the Large Chain Drive so the rack lifts clear of the coals.
-part-motor       | Parts and spares | Geared motor          | POA | icon:motor        | The standard geared motor, as fitted to the Open and Hooded Souvla.
-part-motor-xl    | Parts and spares | XL geared motor       | POA | icon:motor-xl     | The heavy motor off the Mega and Double Mega.
-part-chain-motor | Parts and spares | Geared chain motor    | POA | icon:chain-motor  | Drives the row of chain skewers.
-part-controller  | Parts and spares | Speed controller      | POA | icon:dial         | Sets the turn speed. One per motor.
-part-skewer-lg   | Parts and spares | Large skewer          | POA | icon:skewer       | For whole cuts and the big pieces.
-part-skewer-sm   | Parts and spares | Souvlaki skewer, 8 mm | POA | icon:skewer-small | The short ones that sit across the rail.
-part-skewer-xl   | Parts and spares | Mega skewer, 12 mm    | POA | icon:skewer-xl    | The thick XL spit off the Mega and Double Mega.
-part-fork        | Parts and spares | Skewer forks          | POA | icon:fork         | Lock a cut on so it turns as one piece. Sold in pairs.
-part-fork-lg     | Parts and spares | Large forks           | POA | icon:fork         | The bigger forks for the XL skewers.
-part-grill       | Parts and spares | Grill                 | POA | icon:grill        | Sits over the coals for souvlakia, halloumi and pita.
-part-tray        | Parts and spares | Charcoal tray         | POA | icon:tray         | The removable tray. Lift it out and the clean up is done.
-part-disc        | Parts and spares | Yeeros discs          | POA | icon:disc         | Hold a stacked yeeros on the XL skewer. Sold in pairs.
-part-strap       | Parts and spares | Back straps           | POA | icon:strap        | Strap a whole side down flat against the spit.
+part-riser       | Parts and spares | Hi rise conversion        | 99  | icon:riser        | Fitted to the Large Chain Drive so the rack lifts clear of the coals.
+part-motor       | Parts and spares | Geared motor, 30 kg       | 150 | icon:motor        | The standard geared motor, as fitted to the Open and Hooded Souvla.
+part-motor-xl    | Parts and spares | XL geared motor, 100 kg   | 350 | icon:motor-xl     | The heavy motor off the Mega and Double Mega.
+part-chain-motor | Parts and spares | Geared chain motor        | 180 | icon:chain-motor  | Drives the whole row of chain skewers off one motor.
+part-controller  | Parts and spares | Speed controller          | 45  | icon:dial         | Sets the turn speed. One per motor.
+part-skewer-lg   | Parts and spares | Large skewer, 8 mm        | 25  | icon:skewer       | Single skewer for whole cuts and the big pieces.
+part-skewer-3    | Parts and spares | Large skewers, set of 3   | 65  | icon:skewer       | Three 8 mm skewers, the same set that comes with the Open and Hooded Souvla.
+part-skewer-sm   | Parts and spares | Souvlaki skewers, set of 11 | 65 | icon:skewer-small | The thin ones that sit across the rail for souvlakia.
+part-skewer-xl   | Parts and spares | Mega skewer, 12 mm        | 40  | icon:skewer-xl    | The thick XL spit off the Mega and Double Mega.
+part-fork        | Parts and spares | Skewer forks, pair        | 30  | icon:fork         | Lock a cut on so it turns as one piece.
+part-fork-lg     | Parts and spares | Large forks, pair         | 40  | icon:fork         | The bigger forks for the XL Mega skewer.
+part-grill       | Parts and spares | Grill                     | 80  | icon:grill        | Sits over the coals for souvlakia, halloumi and pita.
+part-tray        | Parts and spares | Charcoal tray             | 95  | icon:tray         | The removable tray. Lift it out and the clean up is done.
+part-disc        | Parts and spares | Yeeros discs, pair        | 45  | icon:disc         | Hold a stacked yeeros on the XL skewer.
+part-strap       | Parts and spares | Back strap                | 35  | icon:strap        | Straps a whole side down flat against the spit.
