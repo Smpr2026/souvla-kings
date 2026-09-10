@@ -15,7 +15,7 @@
 souvla-open      | Souvlas | Open Souvla        | 649  | soon | 700 x 400 mm. 3 large skewers, 6 skewer forks, 11 souvlaki skewers, 2 grills, charcoal tray, geared motor, speed controller.
 souvla-hooded    | Souvlas | Hooded Souvla      | 849  | soon | 700 x 400 mm, with the hood. Same kit as the Open Souvla.
 souvla-chain     | Souvlas | Large Chain Drive  | 1099 | ../bbq-1.webp | 900 x 600 mm. 11 large skewers, 12 forks, 2 grills, charcoal tray, large geared motor. | part-riser
-souvla-mega      | Souvlas | Mega Souvla        | 1399 | ../bbq-3.webp | Chain drive with a full rotisserie over it. XL motor, chain motor, 12 mm Mega skewer, 2 speed controllers, yeeros discs.
+souvla-mega      | Souvlas | Mega Souvla        | 1399 | ../bbq-3.webp | 900 x 600 mm. Chain drive with a full rotisserie over it. XL motor, chain motor, 12 mm Mega skewer, 2 speed controllers, yeeros discs.
 souvla-double    | Souvlas | Double Mega        | 1699 | soon | 900 x 600 mm. 2 XL motors, chain motor, 3 speed controllers, 2 XL skewers, 4 yeeros discs, back straps.
 souvla-triple    | Souvlas | Triple Mega        | POA  | soon | Three spits across, built to order for clubs, fetes and catering.
 
