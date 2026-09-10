@@ -95,14 +95,14 @@ h3{font-size:1.28rem;letter-spacing:-.008em;font-stretch:105%}
 .badge{position:absolute;top:-2%;right:0;width:clamp(94px,10vw,134px);animation:spin 30s linear infinite;pointer-events:none}
 .badge text{font-weight:700;font-size:14px;letter-spacing:.085em;fill:var(--blue-ink);text-transform:uppercase}
 @keyframes spin{to{transform:rotate(360deg)}}
-.picker{display:flex;flex-wrap:wrap;gap:.5rem}
-.pick{display:flex;align-items:center;gap:.6rem;padding:.55rem .9rem .55rem .6rem;border:1.5px solid var(--steel);background:#fff;border-radius:2px;cursor:pointer;font-weight:600;font-size:.97rem;text-align:left;transition:border-color .16s,background .16s,color .16s}
-.pick i{display:block;width:2.2rem;height:1.6rem;background-size:contain;background-repeat:no-repeat;background-position:center;flex:none;filter:saturate(.2)}
-.pick:hover{border-color:var(--steel-2)}
-.pick[aria-selected=true]{border-color:var(--ink);background:var(--ink);color:#fff}
-.pick[aria-selected=true] i{filter:none}
-.pick small{display:block;font-weight:500;font-size:.8rem;color:var(--ink-3)}
-.pick[aria-selected=true] small{color:rgba(255,255,255,.72)}
+.views{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.thumbs{display:flex;gap:.4rem}
+.thumb{padding:.28rem .3rem;border:1.5px solid var(--steel);background:#fff;border-radius:2px;cursor:pointer;line-height:0;opacity:.72;transition:opacity .16s,border-color .16s}
+.thumb:hover{opacity:1;border-color:var(--steel-2)}
+.thumb[aria-selected=true]{opacity:1;border-color:var(--ink)}
+.thumb i{display:block;width:3rem;height:2.1rem;background-size:contain;background-repeat:no-repeat;background-position:center}
+.viewcap{font-weight:600;font-size:.95rem;color:var(--ink-2)}
+.viewcap b{font-weight:700;color:var(--ink)}
 
 /* ---------- section shell ---------- */
 section{padding-block:clamp(3.4rem,6.6vw,6rem)}
@@ -293,9 +293,12 @@ section{padding-block:clamp(3.4rem,6.6vw,6rem)}
           <img class="refl" id="shotRefl" data-img="1" alt="" aria-hidden="true" width="1448" height="1086">
         </div>
       </div>
-      <div class="picker" role="tablist" aria-label="Choose a model">
-        <button class="pick" role="tab" aria-selected="true" data-model="0"><i data-thumb="1"></i><span>Chain Drive<small>From $1099</small></span></button>
-        <button class="pick" role="tab" aria-selected="false" data-model="1"><i data-thumb="3"></i><span>Mega Souvla<small>From $1399</small></span></button>
+      <div class="views">
+        <div class="thumbs" role="tablist" aria-label="Photos">
+          <button class="thumb" role="tab" aria-selected="true" data-model="0" aria-label="Photo of the Large Chain Drive"><i data-thumb="1"></i></button>
+          <button class="thumb" role="tab" aria-selected="false" data-model="1" aria-label="Photo of the Mega Souvla"><i data-thumb="3"></i></button>
+        </div>
+        <p class="viewcap">Pictured: <b id="viewcap">Large Chain Drive</b></p>
       </div>
     </div>
   </div>
@@ -635,10 +638,10 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
 /* model switcher */
 const MODELS = [
-  { img: 1, alt: 'Souvla Kings chain drive souvla: eleven black-handled skewers across a stainless body, geared motor on the left, height crank on the right' },
-  { img: 3, alt: 'Mega Souvla: twin upright posts carrying the XL rotisserie skewer and its own motor above eleven chain skewers, controller box on the front' }
+  { img: 1, name: 'Large Chain Drive', alt: 'Souvla Kings chain drive souvla: eleven black-handled skewers across a stainless body, geared motor on the left, height crank on the right' },
+  { img: 3, name: 'Mega Souvla', alt: 'Mega Souvla: twin upright posts carrying the XL rotisserie skewer and its own motor above eleven chain skewers, controller box on the front' }
 ];
-const stage = $('#stage'), shotImg = $('#shotImg'), shotRefl = $('#shotRefl'), picks = $$('.pick');
+const stage = $('#stage'), shotImg = $('#shotImg'), shotRefl = $('#shotRefl'), picks = $$('.thumb'), viewcap = $('#viewcap');
 let cur = 0, busy = false;
 picks.forEach(p => p.addEventListener('click', () => {
   const i = +p.dataset.model; if (i === cur || busy) return; busy = true; cur = i;
@@ -646,6 +649,7 @@ picks.forEach(p => p.addEventListener('click', () => {
   stage.classList.add('swapping');
   setTimeout(() => {
     shotImg.src = IMG[MODELS[i].img]; shotRefl.src = IMG[MODELS[i].img]; shotImg.alt = MODELS[i].alt;
+    if (viewcap) viewcap.textContent = MODELS[i].name;
     stage.classList.remove('swapping'); busy = false;
   }, reduced ? 0 : 300);
 }));
