@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Souvla Kings</title>
+<meta name="description" content="Quality stainless steel souvlas built in Sydney, in five sizes, with grills for souvlakia and rotisserie gear for yeeros. Free assembly, shipped Australia-wide. Call or text 0429 543 435.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap">
+<style>
+:root{
+  --paper:#fbfcfe;
+  --paper-2:#f1f3f8;
+  --paper-3:#e6e9f1;
+  --steel:#d3d8e4;
+  --steel-2:#b9c0d0;
+  --ink:#11141c;
+  --ink-2:#454b5c;
+  --ink-3:#6b7284;
+  --blue:#0012fb;
+  --blue-deep:#0410c4;
+  --blue-ink:#000b8f;
+  --blue-tint:#eceefe;
+  --char:#12141b;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --sans:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --z-nav:40;--z-bar:45;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{margin:0;font-weight:800;line-height:1.02;letter-spacing:-.018em;font-stretch:112%;text-wrap:balance}
+h1{font-size:clamp(2.4rem,5.1vw,4.3rem);font-weight:900}
+h2{font-size:clamp(2rem,4vw,3.4rem)}
+h3{font-size:1.28rem;letter-spacing:-.008em;font-stretch:105%}
+.wrap{width:min(1240px,100% - 2*clamp(1.1rem,4vw,3rem));margin-inline:auto}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px}
+.tnum{font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:var(--z-nav);background:color-mix(in oklab,var(--paper) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .25s,background .25s}
+.top.stuck{border-color:var(--steel);background:color-mix(in oklab,var(--paper) 96%,transparent)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;padding-block:.6rem}
+.brand{display:flex;align-items:center;text-decoration:none;flex:none}
+.brand img{height:clamp(40px,4.4vw,56px);width:auto}
+.nav{display:flex;gap:1.45rem;list-style:none;margin:0;padding:0;font-weight:600;font-size:.97rem}
+.nav a{text-decoration:none;color:var(--ink-2);padding:.3rem 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.nav a:hover{color:var(--ink);border-color:var(--blue)}
+@media (max-width:1020px){.nav{display:none}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;font-size:1rem;text-decoration:none;padding:.85rem 1.35rem;border-radius:2px;border:1.5px solid transparent;line-height:1;cursor:pointer;white-space:nowrap;transition:background .18s,color .18s,border-color .18s,transform .18s var(--ease),box-shadow .18s}
+.btn-primary{background:var(--blue-deep);color:#fff}
+.btn-primary:hover{background:var(--blue);transform:translateY(-1px);box-shadow:0 10px 24px -12px var(--blue)}
+.btn-primary:active{transform:translateY(0)}
+.btn-line{border-color:var(--steel-2);color:var(--ink);background:#fff}
+.btn-line:hover{border-color:var(--ink)}
+.btn-white{background:#fff;color:var(--blue-ink)}
+.btn-white:hover{transform:translateY(-1px)}
+.btn-ghost-white{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-ghost-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.btn-sm{padding:.6rem 1rem;font-size:.94rem}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:clamp(1.4rem,3.2vw,2.6rem) 0;background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 62%,var(--paper-3) 100%)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,5.1fr) minmax(0,6.9fr);gap:clamp(1.2rem,3vw,3.5rem);align-items:center}
+.hero h1 em{font-style:normal;color:var(--blue-ink)}
+.hero .lede{color:var(--ink-2);font-size:clamp(1.05rem,1.32vw,1.18rem);max-width:36ch;margin-top:1.1rem}
+.pricebar{display:flex;align-items:flex-end;flex-wrap:wrap;gap:.4rem 1.2rem;margin-top:1.4rem;padding-top:1.1rem;border-top:2px solid var(--ink)}
+.pb-l{display:flex;align-items:baseline;gap:.6rem}
+.pricebar .from{font-weight:600;font-size:.9rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.pricebar .amt{font-weight:900;font-size:clamp(2.5rem,4.2vw,3.5rem);line-height:.9;letter-spacing:-.03em;font-stretch:112%}
+.pricebar .free{font-weight:700;font-size:.86rem;letter-spacing:.07em;text-transform:uppercase;color:var(--blue-ink);line-height:1.3;padding-bottom:.4rem}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.3rem}
+.trust{display:flex;flex-wrap:wrap;gap:.35rem 1.3rem;margin-top:1.2rem;padding:0;list-style:none;font-size:.95rem;color:var(--ink-2)}
+.trust li{display:flex;align-items:center;gap:.45rem}
+.trust svg{width:1.05rem;height:1.05rem;flex:none;color:var(--blue)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+
+/* ---------- product stage ---------- */
+.stage{position:relative;padding-bottom:clamp(1.6rem,4vw,3rem)}
+.stage-inner{position:relative}
+.floor{position:absolute;left:2%;right:2%;bottom:16%;height:26%;background:radial-gradient(60% 50% at 50% 50%,rgba(17,20,28,.16),transparent 72%);filter:blur(6px)}
+.shot{position:relative;transition:transform .3s var(--ease),opacity .3s}
+.shot img{width:100%;height:auto}
+.shot .refl{position:absolute;left:0;top:100%;width:100%;transform:scaleY(-1);transform-origin:top;opacity:.22;filter:blur(1.2px);-webkit-mask-image:linear-gradient(to bottom,#000,transparent 42%);mask-image:linear-gradient(to bottom,#000,transparent 42%);pointer-events:none}
+.stage.swapping .shot{opacity:0;transform:translateX(-26px)}
+.badge{position:absolute;top:-2%;right:0;width:clamp(94px,10vw,134px);animation:spin 30s linear infinite;pointer-events:none}
+.badge text{font-weight:700;font-size:14px;letter-spacing:.085em;fill:var(--blue-ink);text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+.picker{display:flex;flex-wrap:wrap;gap:.5rem}
+.pick{display:flex;align-items:center;gap:.6rem;padding:.55rem .9rem .55rem .6rem;border:1.5px solid var(--steel);background:#fff;border-radius:2px;cursor:pointer;font-weight:600;font-size:.97rem;text-align:left;transition:border-color .16s,background .16s,color .16s}
+.pick i{display:block;width:2.2rem;height:1.6rem;background-size:contain;background-repeat:no-repeat;background-position:center;flex:none;filter:saturate(.2)}
+.pick:hover{border-color:var(--steel-2)}
+.pick[aria-selected=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.pick[aria-selected=true] i{filter:none}
+.pick small{display:block;font-weight:500;font-size:.8rem;color:var(--ink-3)}
+.pick[aria-selected=true] small{color:rgba(255,255,255,.72)}
+
+/* ---------- section shell ---------- */
+section{padding-block:clamp(3.4rem,6.6vw,6rem)}
+.head2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:.5rem clamp(2rem,5vw,4.5rem);align-items:end;margin-bottom:clamp(1.9rem,3.6vw,3.2rem)}
+.head2 .rule{grid-column:1/-1}
+.head2 .sub{color:var(--ink-2);font-size:1.1rem;padding-bottom:.35rem}
+@media (max-width:860px){.head2{grid-template-columns:1fr}.head2 .sub{padding-bottom:0;margin-top:.7rem}}
+.rule{display:flex;align-items:center;gap:.8rem;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-ink);margin-bottom:1rem}
+.rule::after{content:"";height:1.5px;flex:1;background:var(--steel)}
+
+/* ---------- range ---------- */
+.ctabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:clamp(1.1rem,2.1vw,1.7rem)}
+.ctab{padding:.62rem 1.05rem;border:1.5px solid var(--steel);background:#fff;border-radius:2px;font-weight:700;font-size:.96rem;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
+.ctab:hover{border-color:var(--ink-3)}
+.ctab[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.cpanels{border:1px solid var(--steel);background:#fff}
+.cpanel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(1.4rem,4vw,4rem);padding:clamp(1.5rem,3vw,2.6rem)}
+.cpanel[hidden]{display:none}
+.cp-role{color:var(--blue-ink);font-weight:700;font-size:.85rem;letter-spacing:.09em;text-transform:uppercase}
+.cpanel h3{font-size:clamp(1.8rem,3vw,2.5rem);margin:.4rem 0 .3rem}
+.cp-size{color:var(--ink-3);font-weight:600;font-variant-numeric:tabular-nums}
+.cp-price{margin:1.1rem 0 1.3rem;padding-top:1.1rem;border-top:2px solid var(--ink)}
+.cp-price .price{font-weight:900;font-size:clamp(2rem,3.4vw,2.9rem);letter-spacing:-.03em;font-stretch:112%;white-space:nowrap;font-variant-numeric:tabular-nums}
+.cp-price .price small{font-weight:600;font-size:.6em;letter-spacing:.09em;text-transform:uppercase;color:var(--blue-ink);margin-right:.45em;font-stretch:100%}
+.cp-price .price.ask{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:800;color:var(--ink-2);letter-spacing:-.01em}
+.cp-lb{font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.8rem}
+.kitrows{list-style:none;margin:0;padding:0;display:grid;gap:.32rem}
+.kitrows li{display:grid;grid-template-columns:1.9rem 1fr;gap:.6rem;align-items:baseline;color:var(--ink-2);font-size:1rem}
+.kitrows .qn{font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.extras{margin-top:clamp(1.7rem,3.2vw,2.5rem);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--steel);border:1px solid var(--steel)}
+.extra{background:#fff;padding:1.1rem 1.2rem}
+.x-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.2rem 1rem}
+.extra b{font-weight:800;font-size:1.08rem;letter-spacing:-.008em}
+.x-p{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.x-p.ask{font-weight:700;font-size:.95rem;color:var(--ink-2)}
+.extra p{color:var(--ink-2);font-size:.95rem;margin-top:.3rem}
+.rangecta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem;margin-top:clamp(1.5rem,2.8vw,2.2rem)}
+.rangecta p{color:var(--ink-2);font-size:1rem;max-width:54ch}
+@media (min-width:861px){.cpanels{min-height:26.5rem}}
+@media (max-width:820px){.cpanel{grid-template-columns:1fr}}
+
+/* ---------- in the box ---------- */
+.box-sec{background:#fff;border-block:1px solid var(--steel)}
+.kitgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--steel);border:1px solid var(--steel)}
+.kitgrid div{background:#fff;padding:clamp(1rem,1.8vw,1.5rem);display:grid;gap:.25rem;align-content:start}
+.kitgrid .n{font-weight:900;font-size:2.3rem;line-height:1;letter-spacing:-.03em;font-stretch:112%;color:var(--blue-ink)}
+.kitgrid b{font-weight:700;font-size:1.02rem}
+.kitgrid span{color:var(--ink-2);font-size:.95rem}
+
+/* ---------- parts ---------- */
+.partsgrid{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:clamp(1.5rem,3.5vw,3.5rem);align-items:center}
+.partsfig{position:relative;margin:0;aspect-ratio:1448/1086}
+.partsfig img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.mk{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:2rem;height:2rem;display:grid;place-items:center;border-radius:50%;background:var(--blue-deep);color:#fff;font-weight:800;font-size:.95rem;line-height:1;box-shadow:0 2px 10px rgba(4,16,196,.45),0 0 0 0 rgba(4,16,196,.45);transition:transform .25s var(--ease),box-shadow .25s}
+.mk.hot{transform:translate(-50%,-50%) scale(1.32);box-shadow:0 2px 10px rgba(4,16,196,.5),0 0 0 9px rgba(4,16,196,.16)}
+.partslist{list-style:none;margin:0;padding:0;display:grid;gap:.1rem;counter-reset:pt}
+.partslist li{display:grid;grid-template-columns:2rem 1fr;gap:.85rem;align-items:start;padding:.65rem .7rem .65rem .55rem;border-radius:3px;border:1.5px solid transparent;transition:background .18s,border-color .18s}
+.partslist li:hover,.partslist li.hot{background:var(--blue-tint);border-color:color-mix(in oklab,var(--blue) 22%,#fff)}
+.partslist li::before{counter-increment:pt;content:counter(pt);display:grid;place-items:center;width:1.75rem;height:1.75rem;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;font-size:.9rem;margin-top:.1rem;transition:background .18s}
+.partslist li:hover::before,.partslist li.hot::before{background:var(--blue-deep)}
+.partslist b{display:block;font-weight:800;font-size:1.04rem;letter-spacing:-.008em}
+.partslist span{color:var(--ink-2);font-size:.96rem}
+.partsnote{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--steel);color:var(--ink-2);font-size:.98rem}
+@media (max-width:860px){.partsgrid{grid-template-columns:1fr}.mk{width:1.7rem;height:1.7rem;font-size:.82rem}}
+
+/* ---------- two ways ---------- */
+.ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(1.5rem,3vw,3rem)}
+.way{border-top:2px solid var(--ink);padding-top:1.1rem}
+.way .k{font-weight:800;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-ink);margin-bottom:.5rem}
+.way h3{margin-bottom:.45rem}
+.way p{color:var(--ink-2)}
+
+/* ---------- blue band ---------- */
+.band{background:var(--blue-deep);color:#fff}
+.band h2{color:#fff}
+.band .rule{color:rgba(255,255,255,.72)}
+.band .rule::after{background:rgba(255,255,255,.3)}
+.band .head2 .sub{color:rgba(255,255,255,.85)}
+.band .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(1.5rem,3vw,3rem)}
+.band .grid h3{color:#fff;margin-bottom:.4rem}
+.band .grid p{color:rgba(255,255,255,.82)}
+.band .grid svg{width:1.6rem;height:1.6rem;margin-bottom:.7rem;color:#fff}
+.band .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:clamp(1.8rem,3vw,2.6rem)}
+
+/* ---------- proof ---------- */
+.quotewrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:center;margin-bottom:clamp(2.2rem,4vw,3.4rem)}
+.quote{margin:0;padding:0}
+.quote p{font-weight:800;font-size:clamp(1.5rem,2.7vw,2.25rem);line-height:1.12;letter-spacing:-.018em;font-stretch:108%;max-width:19ch}
+.quote footer{margin-top:.9rem;color:var(--ink-2);font-size:.98rem;font-weight:500}
+.seen{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.seen li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start;padding:.85rem 0;border-bottom:1px solid var(--steel)}
+.seen li:first-child{border-top:1px solid var(--steel)}
+.seen svg{width:1.2rem;height:1.2rem;color:var(--blue);margin-top:.28rem;flex:none}
+.seen b{display:block;font-weight:700}
+.seen span{color:var(--ink-2);font-size:.97rem}
+@media (max-width:860px){.quotewrap{grid-template-columns:1fr}}
+
+/* ---------- links ---------- */
+.links{list-style:none;margin:0;padding:0;border-top:1px solid var(--steel)}
+.links li{border-bottom:1px solid var(--steel)}
+.links a{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;padding:1.1rem .9rem;text-decoration:none;transition:background .2s}
+.links a>*{transition:transform .25s var(--ease)}
+.links a:hover{background:var(--blue-tint)}
+.links a:hover .net,.links a:hover .h{transform:translateX(6px)}
+.links .net{font-weight:700;font-size:.84rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);min-width:6.5rem}
+.links .h{font-weight:800;font-size:clamp(1.2rem,2.2vw,1.65rem);letter-spacing:-.015em;font-stretch:108%}
+.links a:hover .h{color:var(--blue-ink)}
+.links .ar{color:var(--blue);font-weight:800}
+.links a:hover .ar{transform:translateX(11px)}
+
+/* ---------- footer ---------- */
+.sitefoot{background:var(--char);color:#fff;padding-block:clamp(3rem,6vw,5rem) 1.5rem}
+.sitefoot .top-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end}
+.fbadge{display:inline-grid;place-items:center;background:#fff;border-radius:50%;padding:1.1rem;width:clamp(118px,14vw,160px);aspect-ratio:1}
+.fbadge img{width:100%;height:auto}
+.callnum{display:inline-block;font-weight:900;font-size:clamp(2.5rem,7.6vw,5.6rem);line-height:.95;letter-spacing:-.035em;font-stretch:112%;text-decoration:none;transition:color .18s}
+.callnum:hover{color:#8f9bff}
+.sitefoot .sub{color:rgba(255,255,255,.72);margin-top:.8rem;max-width:48ch}
+.sitefoot .fcta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
+.fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 1.5rem;margin-top:clamp(2.5rem,5vw,4rem);padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.55);font-size:.87rem}
+@media (max-width:700px){.sitefoot .top-row{grid-template-columns:1fr}.fbadge{justify-self:start}}
+
+/* ---------- mobile call bar ---------- */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:var(--z-bar);display:none;gap:.5rem;padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom));background:color-mix(in oklab,var(--paper) 94%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--steel)}
+.callbar .btn{flex:1}
+@media (max-width:1020px){.callbar{display:flex}body{padding-bottom:4.6rem}}
+
+/* ---------- reveal ---------- */
+.rv{transition:transform .8s var(--ease)}
+.rv:not(.in){transform:translateY(14px)}
+@media (prefers-reduced-motion:reduce){
+  .badge{animation:none}
+  .rv,.rv:not(.in){transform:none;transition:none}
+  html{scroll-behavior:auto}
+  .shot,.stage.swapping .shot{transition:none;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Souvla Kings, back to top">
+      <img src="assets/logo.webp" alt="Souvla Kings, Greek BBQ" width="1430" height="1100">
+    </a>
+    <ul class="nav">
+      <li><a href="#range">The range</a></li>
+      <li><a href="#box">In the box</a></li>
+      <li><a href="#parts">Every part</a></li>
+      <li><a href="#cook">Two ways to cook</a></li>
+      <li><a href="#delivery">Delivery</a></li>
+      <li><a href="#order">Order</a></li>
+    </ul>
+    <a class="btn btn-primary btn-sm" href="tel:+61429543435">0429 543 435</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>For the person who <em>loves to entertain.</em></h1>
+      <p class="lede">Quality stainless steel souvlas built in Sydney, in five sizes, with grills for souvlakia and rotisserie gear for yeeros.</p>
+      <div class="pricebar">
+        <span class="pb-l"><span class="from">From</span><span class="amt tnum">$649</span></span>
+        <span class="free">Free assembly<br>Shipped Australia&#8209;wide</span>
+      </div>
+      <div class="cta">
+        <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+        <a class="btn btn-line" href="#range">See the range</a>
+      </div>
+      <ul class="trust">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>All stainless steel</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Free assembly</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Free Sydney delivery</li>
+      </ul>
+    </div>
+    <div class="stage" id="stage">
+      <div class="stage-inner">
+        <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="ring" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
+          <text><textPath href="#ring" textLength="477" lengthAdjust="spacingAndGlyphs">Souvla Kings · Sydney · All stainless steel ·</textPath></text>
+          <circle cx="100" cy="100" r="56" fill="none" stroke="var(--blue)" stroke-width="1.5"/>
+          <path transform="translate(70,80) scale(0.95)" d="M2 42V18h7v-8h6v8h8V6h6v12h8V6h6v12h8v-8h6v8h5v24z" fill="var(--blue)"/>
+        </svg>
+        <div class="floor"></div>
+        <div class="shot" id="shot">
+          <img id="shotImg" data-img="1" alt="Souvla Kings chain drive souvla: eleven black-handled skewers across a stainless body, geared motor on the left, height crank on the right, laser-cut name in the front rail" width="1448" height="1086">
+          <img class="refl" id="shotRefl" data-img="1" alt="" aria-hidden="true" width="1448" height="1086">
+        </div>
+      </div>
+      <div class="picker" role="tablist" aria-label="Choose a model">
+        <button class="pick" role="tab" aria-selected="true" data-model="0"><i data-thumb="1"></i><span>Chain Drive<small>From $1099</small></span></button>
+        <button class="pick" role="tab" aria-selected="false" data-model="1"><i data-thumb="3"></i><span>Mega Souvla<small>From $1399</small></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="range" style="background:#fff;border-block:1px solid var(--steel)">
+  <div class="wrap">
+    <div class="head2 rv">
+      <p class="rule">The range</p>
+      <h2>Six builds, one workshop.</h2>
+      <p class="sub">Pick a size to see exactly what comes with it. Every one is welded from stainless steel and arrives with its skewers, forks, grills and a removable charcoal tray.</p>
+    </div>
+    <div class="rv">
+      <div class="ctabs" role="tablist" aria-label="Souvla models">
+        <button class="ctab" role="tab" aria-selected="true" aria-controls="p-open" id="t-open" tabindex="0" data-i="0">Open Souvla</button>
+        <button class="ctab" role="tab" aria-selected="false" aria-controls="p-hooded" id="t-hooded" tabindex="-1" data-i="1">Hooded Souvla</button>
+        <button class="ctab" role="tab" aria-selected="false" aria-controls="p-chain" id="t-chain" tabindex="-1" data-i="2">Large Chain Drive</button>
+        <button class="ctab" role="tab" aria-selected="false" aria-controls="p-mega" id="t-mega" tabindex="-1" data-i="3">Mega Souvla</button>
+        <button class="ctab" role="tab" aria-selected="false" aria-controls="p-double" id="t-double" tabindex="-1" data-i="4">Double Mega</button>
+        <button class="ctab" role="tab" aria-selected="false" aria-controls="p-triple" id="t-triple" tabindex="-1" data-i="5">Triple Mega</button>
+      </div>
+      <div class="cpanels">
+        <div class="cpanel" id="p-open" role="tabpanel" aria-labelledby="t-open" tabindex="0">
+          <div>
+            <p class="cp-role">The starting size</p>
+            <h3>Open Souvla</h3>
+            <p class="cp-size">700 &times; 400&nbsp;mm</p>
+            <div class="cp-price"><span class="price"><small>from</small>$649</span></div>
+            <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+          </div>
+          <div>
+            <p class="cp-lb">What comes with it</p>
+            <ul class="kitrows">
+              <li><span class="qn">3</span><span>large skewers</span></li>
+              <li><span class="qn">6</span><span>skewer forks</span></li>
+              <li><span class="qn">11</span><span>souvlaki skewers</span></li>
+              <li><span class="qn">2</span><span>grills</span></li>
+              <li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li>
+              <li><span class="qn">&bull;</span><span>Geared motor</span></li>
+              <li><span class="qn">&bull;</span><span>Speed controller</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cpanel" id="p-hooded" role="tabpanel" aria-labelledby="t-hooded" tabindex="0" hidden>
+          <div>
+            <p class="cp-role">The same size, with the hood</p>
+            <h3>Hooded Souvla</h3>
+            <p class="cp-size">700 &times; 400&nbsp;mm</p>
+            <div class="cp-price"><span class="price"><small>from</small>$849</span></div>
+            <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+          </div>
+          <div>
+            <p class="cp-lb">What comes with it</p>
+            <ul class="kitrows">
+              <li><span class="qn">3</span><span>large skewers</span></li>
+              <li><span class="qn">6</span><span>skewer forks</span></li>
+              <li><span class="qn">11</span><span>souvlaki skewers</span></li>
+              <li><span class="qn">2</span><span>grills</span></li>
+              <li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li>
+              <li><span class="qn">&bull;</span><span>Geared motor</span></li>
+              <li><span class="qn">&bull;</span><span>Speed controller</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cpanel" id="p-chain" role="tabpanel" aria-labelledby="t-chain" tabindex="0" hidden>
+          <div>
+            <p class="cp-role">The one most people buy</p>
+            <h3>Large Chain Drive</h3>
+            <p class="cp-size">900 &times; 600&nbsp;mm</p>
+            <div class="cp-price"><span class="price"><small>from</small>$1099</span></div>
+            <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+          </div>
+          <div>
+            <p class="cp-lb">What comes with it</p>
+            <ul class="kitrows">
+              <li><span class="qn">11</span><span>large skewers</span></li>
+              <li><span class="qn">12</span><span>forks</span></li>
+              <li><span class="qn">2</span><span>grills</span></li>
+              <li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li>
+              <li><span class="qn">&bull;</span><span>Large geared motor</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cpanel" id="p-mega" role="tabpanel" aria-labelledby="t-mega" tabindex="0" hidden>
+          <div>
+            <p class="cp-role">Chain drive with a full rotisserie over it</p>
+            <h3>Mega Souvla</h3>
+            <p class="cp-size">Ring for the size</p>
+            <div class="cp-price"><span class="price"><small>from</small>$1399</span></div>
+            <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+          </div>
+          <div>
+            <p class="cp-lb">What comes with it</p>
+            <ul class="kitrows">
+              <li><span class="qn">1</span><span>XL geared motor</span></li>
+              <li><span class="qn">1</span><span>geared chain motor</span></li>
+              <li><span class="qn">1</span><span>12&nbsp;mm Mega skewer</span></li>
+              <li><span class="qn">2</span><span>speed controllers</span></li>
+              <li><span class="qn">11</span><span>8&nbsp;mm skewers</span></li>
+              <li><span class="qn">2</span><span>large forks</span></li>
+              <li><span class="qn">12</span><span>skewer forks</span></li>
+              <li><span class="qn">2</span><span>grills</span></li>
+              <li><span class="qn">2</span><span>yeeros discs</span></li>
+              <li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cpanel" id="p-double" role="tabpanel" aria-labelledby="t-double" tabindex="0" hidden>
+          <div>
+            <p class="cp-role">Top of the range</p>
+            <h3>Double Mega</h3>
+            <p class="cp-size">900 &times; 600&nbsp;mm</p>
+            <div class="cp-price"><span class="price"><small>from</small>$1699</span></div>
+            <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+          </div>
+          <div>
+            <p class="cp-lb">What comes with it</p>
+            <ul class="kitrows">
+              <li><span class="qn">2</span><span>XL motors</span></li>
+              <li><span class="qn">1</span><span>chain motor</span></li>
+              <li><span class="qn">3</span><span>speed controllers</span></li>
+              <li><span class="qn">2</span><span>XL skewers</span></li>
+              <li><span class="qn">4</span><span>large forks</span></li>
+              <li><span class="qn">2</span><span>back straps</span></li>
+              <li><span class="qn">4</span><span>yeeros discs</span></li>
+              <li><span class="qn">11</span><span>chain skewers</span></li>
+              <li><span class="qn">12</span><span>chain skewer forks</span></li>
+              <li><span class="qn">2</span><span>large grills</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cpanel" id="p-triple" role="tabpanel" aria-labelledby="t-triple" tabindex="0" hidden>
+          <div>
+            <p class="cp-role">Three spits across, built to order</p>
+            <h3>Triple Mega</h3>
+            <p class="cp-size">Ring for the size</p>
+            <div class="cp-price"><span class="price ask">Price on call</span></div>
+            <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+          </div>
+          <div>
+            <p class="cp-lb">What comes with it</p>
+            <ul class="kitrows">
+              <li><span class="qn">&bull;</span><span>For clubs, fetes and catering</span></li>
+              <li><span class="qn">&bull;</span><span>Ring for the kit list and the lead time</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="extras rv">
+      <div class="extra">
+        <p class="x-top"><b>Hi rise conversion</b><span class="x-p">$99</span></p>
+        <p>Fitted to the Large Chain Drive so the rack lifts clear of the coals.</p>
+      </div>
+      <div class="extra">
+        <p class="x-top"><b>Battery powered Mega</b><span class="x-p ask">Ask when you ring</span></p>
+        <p>The Mega chain drive is also built to run off a battery.</p>
+      </div>
+    </div>
+    <div class="rangecta rv">
+      <p>Prices move with the season, so treat these as a guide. Ring or text for today&rsquo;s price and what is ready to go.</p>
+      <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+    </div>
+  </div>
+</section>
+
+<section class="box-sec" id="box">
+  <div class="wrap">
+    <div class="head2 rv">
+      <p class="rule">In the box</p>
+      <h2>You get the whole set, not just the frame.</h2>
+      <p class="sub">This is what comes with the Large Chain Drive. Nothing else to buy before the first cook except the charcoal and the meat.</p>
+    </div>
+    <div class="kitgrid rv">
+      <div><span class="n tnum">11</span><b>Large skewers</b><span>Right across the 900&nbsp;mm rail.</span></div>
+      <div><span class="n tnum">12</span><b>Forks</b><span>To lock each cut on so it turns as one piece.</span></div>
+      <div><span class="n tnum">2</span><b>Grills</b><span>For souvlakia straight over the coals.</span></div>
+      <div><span class="n tnum">1</span><b>Removable charcoal tray</b><span>Lift it out and the clean-up is done.</span></div>
+      <div><span class="n tnum">1</span><b>Large geared motor</b><span>With a speed controller. Set it and leave it.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="parts">
+  <div class="wrap">
+    <div class="head2 rv">
+      <p class="rule">Every part</p>
+      <h2>Welded, cut and bolted here.</h2>
+      <p class="sub">The name is laser cut through the front rail, not stuck on. Hover a part to find it on the machine.</p>
+    </div>
+    <div class="partsgrid rv">
+      <figure class="partsfig" id="partsFig">
+        <img data-img="1" alt="Souvla Kings souvla with its parts numbered: grills, skewers, geared motor, laser-cut rail, height crank, under shelf and lockable castors">
+        <span class="mk" style="--x:48%;--y:17%" data-p="0" aria-hidden="true">1</span>
+        <span class="mk" style="--x:48%;--y:44%" data-p="1" aria-hidden="true">2</span>
+        <span class="mk" style="--x:9%;--y:52%" data-p="2" aria-hidden="true">3</span>
+        <span class="mk" style="--x:70%;--y:54%" data-p="3" aria-hidden="true">4</span>
+        <span class="mk" style="--x:89%;--y:59%" data-p="4" aria-hidden="true">5</span>
+        <span class="mk" style="--x:56%;--y:72%" data-p="5" aria-hidden="true">6</span>
+        <span class="mk" style="--x:21%;--y:91%" data-p="6" aria-hidden="true">7</span>
+      </figure>
+      <div>
+        <ol class="partslist" id="partsList">
+          <li><div><b>Two grills</b><span>Straight over the coals for souvlakia, halloumi and loukaniko.</span></div></li>
+          <li><div><b>Eleven skewers</b><span>Black handles, and each one drops into its own notch so nothing slips.</span></div></li>
+          <li><div><b>Geared motor</b><span>With a speed controller, so you set the turn once and leave it.</span></div></li>
+          <li><div><b>Laser-cut rail</b><span>The name is cut through the stainless, so it never peels off.</span></div></li>
+          <li><div><b>Height crank</b><span>Wind the whole rack up off the coals, or down for the crust.</span></div></li>
+          <li><div><b>Under shelf</b><span>Trays, tongs and the bag of coal, up off the ground.</span></div></li>
+          <li><div><b>Lockable castors</b><span>Roll it out of the garage, lock it on the lawn.</span></div></li>
+        </ol>
+        <p class="partsnote">The charcoal tray inside lifts straight out, so cleaning up after a long day is one job, not three.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cook" style="background:var(--paper-2);border-block:1px solid var(--steel)">
+  <div class="wrap">
+    <div class="head2 rv">
+      <p class="rule">Two ways to cook</p>
+      <h2>Authentic charcoal, traditional flavours.</h2>
+      <p class="sub">Every souvla does both jobs at once. Grills across the top for souvlakia, and the rotisserie underneath for yeeros and the whole cuts.</p>
+    </div>
+    <div class="ways rv">
+      <div class="way">
+        <p class="k">Across the top</p>
+        <h3>Souvlakia on the grills</h3>
+        <p>Two grills sit over the coals for souvlakia, halloumi, loukaniko and pita, while the big cuts keep turning underneath.</p>
+      </div>
+      <div class="way">
+        <p class="k">On the spit</p>
+        <h3>Yeeros on the rotisserie</h3>
+        <p>The Mega and the Double Mega carry an XL skewer with yeeros discs and back straps, so a stacked yeeros turns on its own motor.</p>
+      </div>
+      <div class="way">
+        <p class="k">How much it holds</p>
+        <h3>24&nbsp;kg of lamb</h3>
+        <p>A Sydney caterer put 24&nbsp;kg of lamb on a Souvla Kings machine and filmed it turning. There is room for the whole street.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="delivery">
+  <div class="wrap">
+    <div class="head2 rv">
+      <p class="rule">Delivery and assembly</p>
+      <h2>Delivered and put together for you.</h2>
+      <p class="sub">Free delivery and free assembly across Sydney metro, and we ship Australia-wide. Give us a ring to sort the freight to your town before you order.</p>
+    </div>
+    <div class="grid rv">
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+        <h3>Free Sydney delivery</h3>
+        <p>Sydney metro delivery is on us, and it can be the same day when one is on the floor.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 4l6 6-9 9H5v-6z"/><path d="M12 6l6 6"/></svg>
+        <h3>Free assembly</h3>
+        <p>It arrives built and ready to light. No flat pack, no missing bolts.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8"/><path d="M12 3a15 15 0 000 18 15 15 0 000-18z"/></svg>
+        <h3>Shipped Australia-wide</h3>
+        <p>We send them to every state. Ring first so we can work out the freight to your address.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2 1a11 11 0 005 5l1-2 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
+        <h3>One number, seven days</h3>
+        <p>Call or text 0429 543 435 and you get the people who build them.</p>
+      </div>
+    </div>
+    <div class="cta">
+      <a class="btn btn-white" href="tel:+61429543435">Call 0429 543 435</a>
+      <a class="btn btn-ghost-white" href="sms:+61429543435">Send a text</a>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <div class="quotewrap rv">
+      <blockquote class="quote">
+        <p>&ldquo;24&nbsp;kg being rotated on a Souvla Kings machine like a champion.&rdquo;</p>
+        <footer>Souvla by Saks, catering a birthday in Sydney</footer>
+      </blockquote>
+      <ul class="seen">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 6.6-7 9-4-2.4-7-5-7-9V6z"/></svg><div><b>Canterbury Bankstown FC</b><span>Business partner and sponsor for the club&rsquo;s 2026 season.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3.5 9 5 4h14l1.5 5M4.5 9v11h15V9M4.5 9h15"/></svg><div><b>Dulwich Hill Gourmet Meats</b><span>Souvla Day, serving from 10am until it sells out.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg><div><b>Epiphany Greek Festival, Sydney</b><span>On the stall with the rest of the market, cooking all day.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></svg><div><b>Functions and gatherings</b><span>Birthdays, weddings and club days. We have the souvla covered.</span></div></li>
+      </ul>
+    </div>
+    <ul class="links rv">
+      <li><a href="https://www.instagram.com/souvla_kings/" target="_blank" rel="noopener"><span class="net">Instagram</span><span class="h">@souvla_kings</span><span class="ar" aria-hidden="true">&rarr;</span></a></li>
+      <li><a href="https://www.facebook.com/p/Souvla-Kings-100042750502784/" target="_blank" rel="noopener"><span class="net">Facebook</span><span class="h">Souvla Kings</span><span class="ar" aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="sitefoot" id="order">
+  <div class="wrap">
+    <div class="top-row">
+      <div>
+        <a class="callnum tnum" href="tel:+61429543435">0429&nbsp;543&nbsp;435</a>
+        <p class="sub">Call or text to order, ask about a size, or check what is ready to go. Built in Sydney, shipped Australia-wide.</p>
+        <div class="fcta">
+          <a class="btn btn-white" href="tel:+61429543435">Call now</a>
+          <a class="btn btn-ghost-white" href="sms:+61429543435">Send a text</a>
+        </div>
+      </div>
+      <span class="fbadge"><img src="assets/logo.webp" alt="" aria-hidden="true" width="1430" height="1100"></span>
+    </div>
+    <div class="fine">
+      <span>Souvla Kings BBQ &amp; Rotisseries Pty Ltd &middot; ABN 43 678 822 565 &middot; Sydney, NSW</span>
+      <span>Stainless steel souvlas for all your BBQ needs</span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-primary" href="tel:+61429543435">Call 0429 543 435</a>
+  <a class="btn btn-line" href="sms:+61429543435">Text</a>
+</div>
+
+<script>
+(() => {
+"use strict";
+const IMG = { 1: "assets/bbq-1.webp", 3: "assets/bbq-3.webp" };
+document.querySelectorAll('img[data-img]').forEach(i => i.src = IMG[i.dataset.img]);
+document.querySelectorAll('i[data-thumb]').forEach(i => i.style.backgroundImage = `url("${IMG[i.dataset.thumb]}")`);
+
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+/* model switcher */
+const MODELS = [
+  { img: 1, alt: 'Souvla Kings chain drive souvla: eleven black-handled skewers across a stainless body, geared motor on the left, height crank on the right' },
+  { img: 3, alt: 'Mega Souvla: twin upright posts carrying the XL rotisserie skewer and its own motor above eleven chain skewers, controller box on the front' }
+];
+const stage = $('#stage'), shotImg = $('#shotImg'), shotRefl = $('#shotRefl'), picks = $$('.pick');
+let cur = 0, busy = false;
+picks.forEach(p => p.addEventListener('click', () => {
+  const i = +p.dataset.model; if (i === cur || busy) return; busy = true; cur = i;
+  picks.forEach(o => o.setAttribute('aria-selected', String(o === p)));
+  stage.classList.add('swapping');
+  setTimeout(() => {
+    shotImg.src = IMG[MODELS[i].img]; shotRefl.src = IMG[MODELS[i].img]; shotImg.alt = MODELS[i].alt;
+    stage.classList.remove('swapping'); busy = false;
+  }, reduced ? 0 : 300);
+}));
+
+/* header state */
+const topBar = $('.top');
+addEventListener('scroll', () => topBar.classList.toggle('stuck', scrollY > 8), { passive: true });
+
+/* reveals */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in'); io.unobserve(e.target);
+}), { rootMargin: '0px 0px -6% 0px' });
+$$('.rv').forEach(el => io.observe(el));
+
+/* range: one model at a time */
+const ctabs = $$('.ctab'), cpanels = $$('.cpanel');
+function selectModel(i, focus) {
+  ctabs.forEach((t, k) => { const on = k === i; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; });
+  cpanels.forEach((p, k) => { p.hidden = k !== i; });
+  if (focus) ctabs[i].focus();
+}
+ctabs.forEach((t, i) => {
+  t.addEventListener('click', () => selectModel(i));
+  t.addEventListener('keydown', ev => {
+    const n = ctabs.length;
+    let j = null;
+    if (ev.key === 'ArrowRight') j = (i + 1) % n;
+    else if (ev.key === 'ArrowLeft') j = (i - 1 + n) % n;
+    else if (ev.key === 'Home') j = 0;
+    else if (ev.key === 'End') j = n - 1;
+    if (j !== null) { ev.preventDefault(); selectModel(j, true); }
+  });
+});
+
+/* parts: hovering a line highlights its marker, and the reverse */
+const marks = $$('#partsFig .mk'), items = $$('#partsList li');
+const sync = (i, on) => { marks[i] && marks[i].classList.toggle('hot', on); items[i] && items[i].classList.toggle('hot', on); };
+items.forEach((li, i) => { li.addEventListener('pointerenter', () => sync(i, true)); li.addEventListener('pointerleave', () => sync(i, false)); });
+marks.forEach((mk, i) => { mk.addEventListener('pointerenter', () => sync(i, true)); mk.addEventListener('pointerleave', () => sync(i, false)); });
+})();
+</script>
+</body>
+</html>

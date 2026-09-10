@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Souvla Kings Range Layouts</title>
+<meta name="description" content="Four layouts for the Souvla Kings range section, built with the real models, kit lists and prices.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap">
+<style>
+:root{--paper:#fbfcfe;--paper-2:#f1f3f8;--paper-3:#e6e9f1;--steel:#d3d8e4;--steel-2:#b9c0d0;
+--ink:#11141c;--ink-2:#454b5c;--ink-3:#6b7284;--blue:#0012fb;--blue-deep:#0410c4;--blue-ink:#000b8f;
+--blue-tint:#eceefe;--char:#12141b;--ease:cubic-bezier(.16,1,.3,1);
+--sans:'Archivo','Helvetica Neue',Arial,sans-serif;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+p{margin:0}a{color:inherit}button{font:inherit;color:inherit}
+h1,h2,h3{margin:0;font-weight:800;line-height:1.03;letter-spacing:-.018em;font-stretch:112%;text-wrap:balance}
+h1{font-size:clamp(2.2rem,4.6vw,3.6rem);font-weight:900}
+h2{font-size:clamp(1.8rem,3.4vw,2.8rem)}
+.wrap{width:min(1240px,100% - 2*clamp(1.1rem,4vw,3rem));margin-inline:auto}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;font-size:1rem;text-decoration:none;padding:.8rem 1.3rem;border-radius:2px;border:1.5px solid transparent;line-height:1;cursor:pointer;white-space:nowrap;transition:background .18s,color .18s,border-color .18s,transform .18s var(--ease)}
+.btn-primary{background:var(--blue-deep);color:#fff}
+.btn-primary:hover{background:var(--blue);transform:translateY(-1px)}
+.btn-line{border-color:var(--steel-2);color:var(--ink);background:#fff}
+.btn-line:hover{border-color:var(--ink)}
+.btn-sm{padding:.55rem .95rem;font-size:.92rem}
+.rule{display:flex;align-items:center;gap:.8rem;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-ink);margin-bottom:1rem}
+.rule::after{content:"";height:1.5px;flex:1;background:var(--steel)}
+/* chrome */
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem clamp(1rem,3vw,2rem);background:color-mix(in oklab,var(--paper) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--steel)}
+.bar img{height:42px;width:auto}
+.tabs{display:flex;gap:.35rem;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .8rem;border:1.5px solid var(--steel);border-radius:2px;text-decoration:none;color:var(--ink-2);font-weight:700;font-size:.93rem;transition:color .15s,border-color .15s,background .15s}
+.tab b{display:grid;place-items:center;width:1.4rem;height:1.4rem;border-radius:50%;background:var(--paper-3);color:var(--ink);font-size:.82rem}
+.tab:hover{color:var(--ink);border-color:var(--ink-3)}
+.intro{padding:clamp(2rem,4.5vw,3.4rem) 0 clamp(1.2rem,2.5vw,2rem)}
+.intro p{color:var(--ink-2);font-size:1.12rem;max-width:60ch;margin-top:.9rem}
+.opt{padding-block:clamp(2.6rem,5vw,4.5rem);border-top:1px solid var(--steel)}
+.opt:nth-child(even){background:#fff}
+.ohead{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:.5rem clamp(2rem,5vw,4rem);align-items:end;margin-bottom:clamp(1.6rem,3vw,2.6rem)}
+.ohead .rule{grid-column:1/-1}
+.ohead .sub{color:var(--ink-2);font-size:1.05rem;padding-bottom:.3rem}
+@media (max-width:860px){.ohead{grid-template-columns:1fr}}
+.price{font-weight:900;font-size:clamp(1.4rem,2.2vw,1.85rem);letter-spacing:-.028em;font-stretch:112%;white-space:nowrap;font-variant-numeric:tabular-nums}
+.price small{font-weight:600;font-size:.6em;letter-spacing:.09em;text-transform:uppercase;color:var(--blue-ink);margin-right:.4em;font-stretch:100%}
+.price.ask{font-weight:700;font-size:1rem;color:var(--ink-2);letter-spacing:.01em}
+.kitrows{list-style:none;margin:0;padding:0;display:grid;gap:.28rem}
+.kitrows li{display:grid;grid-template-columns:1.7rem 1fr;gap:.55rem;align-items:baseline;color:var(--ink-2);font-size:.96rem}
+.kitrows .qn{font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.kitline{list-style:none;margin:.55rem 0 0;padding:0;color:var(--ink-2);font-size:.97rem;line-height:1.5;max-width:74ch}
+.kitline li{display:inline;white-space:nowrap}
+.kitline li:not(:last-child)::after{content:" · ";color:var(--ink-3)}
+.kitline b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.fine-note{margin-top:1rem;color:var(--ink-3);font-size:.9rem}
+/* A compare */
+.cmwrap{overflow-x:auto;border:1px solid var(--steel);background:#fff}
+.compare{border-collapse:collapse;width:100%;min-width:920px;font-size:.95rem}
+.compare th,.compare td{text-align:left;padding:.8rem .9rem;border-bottom:1px solid var(--steel);vertical-align:middle}
+.compare thead th{background:var(--paper-2);border-bottom:2px solid var(--ink);position:sticky;top:0}
+.cm-n{font-weight:800;font-size:1rem;letter-spacing:-.01em;display:block}
+.compare tbody th{font-weight:600;color:var(--ink-3);font-size:.84rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:#fff;position:sticky;left:0;border-right:1px solid var(--steel)}
+.compare tbody tr:hover td{background:var(--blue-tint)}
+.compare td{color:var(--ink-2)}
+.cm-price td{padding-block:1.1rem;border-bottom:0}
+.cm-p{font-weight:900;font-size:1.3rem;letter-spacing:-.02em;font-stretch:112%;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cm-p small{font-weight:600;font-size:.58em;letter-spacing:.09em;text-transform:uppercase;color:var(--blue-ink);margin-right:.35em;font-stretch:100%;display:block}
+.cm-p.ask{font-weight:700;font-size:.95rem;color:var(--ink-2)}
+/* B cards */
+.cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1px;background:var(--steel);border:1px solid var(--steel)}
+.card{background:#fff;display:grid;grid-template-rows:auto 1fr auto;transition:background .18s}
+.card:hover{background:var(--blue-tint)}
+.card-top{padding:1.2rem 1.3rem .4rem;display:flex;justify-content:center}
+.fp{display:grid;justify-items:center;gap:.4rem}
+.fp svg{width:132px;height:92px}
+.fp-lb{font-weight:700;font-size:.82rem;letter-spacing:.06em;color:var(--blue-ink);font-variant-numeric:tabular-nums}
+.fp-none .fp-lb{color:var(--ink-3)}
+.card-body{padding:.6rem 1.3rem 1.1rem}
+.card-body h3{font-size:1.25rem}
+.card .role{color:var(--ink-3);font-size:.92rem;margin:.15rem 0 .8rem}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.9rem 1.3rem;border-top:1px solid var(--steel)}
+/* C tabs */
+.ctabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.6rem}
+.ctab{padding:.6rem 1rem;border:1.5px solid var(--steel);background:#fff;border-radius:2px;font-weight:700;font-size:.96rem;cursor:pointer;transition:background .16s,border-color .16s,color .16s}
+.ctab:hover{border-color:var(--ink-3)}
+.ctab[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.cpanels{border:1px solid var(--steel);background:#fff}
+.cpanel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(1.5rem,4vw,4rem);padding:clamp(1.5rem,3vw,2.6rem)}
+.cpanel[hidden]{display:none}
+.cp-left .role{color:var(--blue-ink);font-weight:700;font-size:.85rem;letter-spacing:.09em;text-transform:uppercase}
+.cp-left h3{font-size:clamp(1.8rem,3vw,2.5rem);margin:.4rem 0 .3rem}
+.cp-size{color:var(--ink-3);font-weight:600;font-variant-numeric:tabular-nums}
+.cp-price{margin:1.1rem 0 1.3rem;padding-top:1.1rem;border-top:2px solid var(--ink)}
+.cp-price .price{font-size:clamp(2rem,3.4vw,2.9rem)}
+.cp-lb{font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.7rem}
+@media (max-width:820px){.cpanel{grid-template-columns:1fr}}
+/* D bands */
+.bands{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.band{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:start;padding:clamp(1.4rem,2.6vw,2.1rem) clamp(.4rem,1vw,.8rem);border-bottom:1px solid var(--steel);transition:background .18s}
+.band:hover{background:var(--blue-tint)}
+.band.alt{grid-template-columns:minmax(0,1fr) minmax(0,auto)}
+.band.alt .bd-price{order:2;text-align:right}
+.band.alt .bd-body{order:1}
+.bigp{font-weight:900;font-size:clamp(2.2rem,4.4vw,3.6rem);letter-spacing:-.035em;font-stretch:112%;line-height:.92;white-space:nowrap;font-variant-numeric:tabular-nums;display:block;min-width:5.5ch}
+.bigp small{display:block;font-weight:600;font-size:.24em;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-ink);font-stretch:100%;margin-bottom:.25em}
+.bigp.ask{font-size:clamp(1.1rem,1.7vw,1.4rem);font-weight:800;color:var(--ink-2);line-height:1.2}
+.band h3{font-size:clamp(1.3rem,2.1vw,1.7rem)}
+.band .role{color:var(--ink-3);font-size:.94rem;margin-top:.2rem}
+@media (max-width:760px){.band,.band.alt{grid-template-columns:1fr}.band.alt .bd-price{order:0;text-align:left}.band.alt .bd-body{order:1}}
+/* verdict */
+.verdict{padding:clamp(2.4rem,5vw,4rem) 0;border-top:1px solid var(--steel)}
+.verdict p{color:var(--ink-2);max-width:62ch;margin-top:.8rem}
+</style></head>
+<body>
+<nav class="bar" aria-label="Options"><img src="__LOGO__" alt="Souvla Kings"><div class="tabs"><a class="tab" href="#a" data-for="a"><b>A</b>Compare them side by side</a><a class="tab" href="#b" data-for="b"><b>B</b>Cards, drawn to scale</a><a class="tab" href="#c" data-for="c"><b>C</b>One at a time</a><a class="tab" href="#d" data-for="d"><b>D</b>Big price bands</a></div></nav>
+<header class="wrap intro"><h1>Four ways to lay out the range.</h1>
+<p>Same six builds, same prices and kit lists, four different layouts. Tell me a letter and it goes into the site. Two can be combined if you want the grid on desktop and the cards on a phone.</p></header>
+<section class="opt" id="a">
+<div class="wrap">
+  <div class="ohead"><p class="rule">Option A</p><h2>Compare them side by side</h2><p class="sub">Every spec in one grid, models across the top. Best when someone already knows they want a souvla and is deciding which one.</p></div>
+  <div class="cmwrap">
+<table class="compare">
+<thead><tr><th scope="col"><span class="sr">Spec</span></th><th scope="col"><span class="cm-n">Open Souvla</span></th><th scope="col"><span class="cm-n">Hooded Souvla</span></th><th scope="col"><span class="cm-n">Large Chain Drive</span></th><th scope="col"><span class="cm-n">Mega Souvla</span></th><th scope="col"><span class="cm-n">Double Mega</span></th><th scope="col"><span class="cm-n">Triple Mega</span></th></tr></thead>
+<tbody><tr><th scope="row">Size</th><td>700 × 400 mm</td><td>700 × 400 mm</td><td>900 × 600 mm</td><td>Ring for size</td><td>900 × 600 mm</td><td>Ring for size</td></tr><tr><th scope="row">Skewers</th><td>3 large + 11 souvlaki</td><td>3 large + 11 souvlaki</td><td>11 large</td><td>1 Mega (12 mm) + 11 × 8 mm</td><td>2 XL + 11 chain</td><td>Ring</td></tr><tr><th scope="row">Forks</th><td>6</td><td>6</td><td>12</td><td>2 large + 12</td><td>4 large + 12</td><td>Ring</td></tr><tr><th scope="row">Grills</th><td>2</td><td>2</td><td>2</td><td>2</td><td>2 large</td><td>Ring</td></tr><tr><th scope="row">Motors</th><td>1 geared</td><td>1 geared</td><td>1 large geared</td><td>1 XL + 1 chain</td><td>2 XL + 1 chain</td><td>Ring</td></tr><tr><th scope="row">Speed controllers</th><td>1</td><td>1</td><td>Ring</td><td>2</td><td>3</td><td>Ring</td></tr><tr><th scope="row">Yeeros gear</th><td>—</td><td>—</td><td>—</td><td>2 discs</td><td>4 discs + 2 straps</td><td>Ring</td></tr><tr><th scope="row">Charcoal tray</th><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Ring</td><td>Ring</td></tr><tr class="cm-price"><th scope="row">Price</th><td><span class="cm-p"><small>from</small>$649</span></td><td><span class="cm-p"><small>from</small>$849</span></td><td><span class="cm-p"><small>from</small>$1099</span></td><td><span class="cm-p"><small>from</small>$1399</span></td><td><span class="cm-p"><small>from</small>$1699</span></td><td><span class="cm-p ask">Price on call</span></td></tr></tbody>
+</table></div>
+<p class="fine-note">A dash means it is not listed in that model&rsquo;s spec, not that it is missing. Ring to confirm.</p>
+</div>
+</section><section class="opt" id="b">
+<div class="wrap">
+  <div class="ohead"><p class="rule">Option B</p><h2>Cards, drawn to scale</h2><p class="sub">Each model as a card, with the cooking surface drawn to scale so the jump from 700 to 900 is something you can see.</p></div>
+  <ul class="cards"><li class="card">
+<div class="card-top"><div class="fp"><svg viewBox="0 0 132 92" aria-hidden="true"><rect x="6" y="6" width="120" height="80" rx="2" fill="none" stroke="var(--steel)" stroke-width="1" stroke-dasharray="3 3"/><rect x="14.7" y="14.5" width="102.7" height="58.1" rx="2" fill="color-mix(in oklab,var(--blue) 12%,#fff)" stroke="var(--blue-deep)" stroke-width="2"/></svg><span class="fp-lb">700 × 400 mm</span></div></div>
+<div class="card-body">
+  <h3>Open Souvla</h3>
+  <p class="role">The starting size</p>
+  <ul class="kitrows"><li><span class="qn">3</span><span>large skewers</span></li><li><span class="qn">6</span><span>skewer forks</span></li><li><span class="qn">11</span><span>souvlaki skewers</span></li><li><span class="qn">2</span><span>grills</span></li><li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li><li><span class="qn">&bull;</span><span>Geared motor</span></li><li><span class="qn">&bull;</span><span>Speed controller</span></li></ul>
+</div>
+<div class="card-foot"><span class="price"><small>from</small>$649</span><a class="btn btn-line btn-sm" href="tel:+61429543435">Call</a></div>
+</li><li class="card">
+<div class="card-top"><div class="fp"><svg viewBox="0 0 132 92" aria-hidden="true"><rect x="6" y="6" width="120" height="80" rx="2" fill="none" stroke="var(--steel)" stroke-width="1" stroke-dasharray="3 3"/><rect x="14.7" y="14.5" width="102.7" height="58.1" rx="2" fill="color-mix(in oklab,var(--blue) 12%,#fff)" stroke="var(--blue-deep)" stroke-width="2"/></svg><span class="fp-lb">700 × 400 mm</span></div></div>
+<div class="card-body">
+  <h3>Hooded Souvla</h3>
+  <p class="role">The same size, with the hood</p>
+  <ul class="kitrows"><li><span class="qn">3</span><span>large skewers</span></li><li><span class="qn">6</span><span>skewer forks</span></li><li><span class="qn">11</span><span>souvlaki skewers</span></li><li><span class="qn">2</span><span>grills</span></li><li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li><li><span class="qn">&bull;</span><span>Geared motor</span></li><li><span class="qn">&bull;</span><span>Speed controller</span></li></ul>
+</div>
+<div class="card-foot"><span class="price"><small>from</small>$849</span><a class="btn btn-line btn-sm" href="tel:+61429543435">Call</a></div>
+</li><li class="card">
+<div class="card-top"><div class="fp"><svg viewBox="0 0 132 92" aria-hidden="true"><rect x="6" y="6" width="120" height="80" rx="2" fill="none" stroke="var(--steel)" stroke-width="1" stroke-dasharray="3 3"/><rect x="0.0" y="-0.1" width="132.0" height="87.1" rx="2" fill="color-mix(in oklab,var(--blue) 12%,#fff)" stroke="var(--blue-deep)" stroke-width="2"/></svg><span class="fp-lb">900 × 600 mm</span></div></div>
+<div class="card-body">
+  <h3>Large Chain Drive</h3>
+  <p class="role">The one most people buy</p>
+  <ul class="kitrows"><li><span class="qn">11</span><span>large skewers</span></li><li><span class="qn">12</span><span>forks</span></li><li><span class="qn">2</span><span>grills</span></li><li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li><li><span class="qn">&bull;</span><span>Large geared motor</span></li></ul>
+</div>
+<div class="card-foot"><span class="price"><small>from</small>$1099</span><a class="btn btn-line btn-sm" href="tel:+61429543435">Call</a></div>
+</li><li class="card">
+<div class="card-top"><div class="fp fp-none"><svg viewBox="0 0 132 92" aria-hidden="true"><rect x="6" y="6" width="120" height="80" rx="2" fill="none" stroke="var(--steel-2)" stroke-width="2" stroke-dasharray="5 4"/></svg><span class="fp-lb">Ring for size</span></div></div>
+<div class="card-body">
+  <h3>Mega Souvla</h3>
+  <p class="role">Chain drive with a full rotisserie over it</p>
+  <ul class="kitrows"><li><span class="qn">1</span><span>XL geared motor</span></li><li><span class="qn">1</span><span>geared chain motor</span></li><li><span class="qn">1</span><span>12 mm Mega skewer</span></li><li><span class="qn">2</span><span>speed controllers</span></li><li><span class="qn">11</span><span>8 mm skewers</span></li><li><span class="qn">2</span><span>large forks</span></li><li><span class="qn">12</span><span>skewer forks</span></li><li><span class="qn">2</span><span>grills</span></li><li><span class="qn">2</span><span>yeeros discs</span></li><li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li></ul>
+</div>
+<div class="card-foot"><span class="price"><small>from</small>$1399</span><a class="btn btn-line btn-sm" href="tel:+61429543435">Call</a></div>
+</li><li class="card">
+<div class="card-top"><div class="fp"><svg viewBox="0 0 132 92" aria-hidden="true"><rect x="6" y="6" width="120" height="80" rx="2" fill="none" stroke="var(--steel)" stroke-width="1" stroke-dasharray="3 3"/><rect x="0.0" y="-0.1" width="132.0" height="87.1" rx="2" fill="color-mix(in oklab,var(--blue) 12%,#fff)" stroke="var(--blue-deep)" stroke-width="2"/></svg><span class="fp-lb">900 × 600 mm</span></div></div>
+<div class="card-body">
+  <h3>Double Mega</h3>
+  <p class="role">Top of the range</p>
+  <ul class="kitrows"><li><span class="qn">2</span><span>XL motors</span></li><li><span class="qn">1</span><span>chain motor</span></li><li><span class="qn">3</span><span>speed controllers</span></li><li><span class="qn">2</span><span>XL skewers</span></li><li><span class="qn">4</span><span>large forks</span></li><li><span class="qn">2</span><span>back straps</span></li><li><span class="qn">4</span><span>yeeros discs</span></li><li><span class="qn">11</span><span>chain skewers</span></li><li><span class="qn">12</span><span>chain skewer forks</span></li><li><span class="qn">2</span><span>large grills</span></li></ul>
+</div>
+<div class="card-foot"><span class="price"><small>from</small>$1699</span><a class="btn btn-line btn-sm" href="tel:+61429543435">Call</a></div>
+</li><li class="card">
+<div class="card-top"><div class="fp fp-none"><svg viewBox="0 0 132 92" aria-hidden="true"><rect x="6" y="6" width="120" height="80" rx="2" fill="none" stroke="var(--steel-2)" stroke-width="2" stroke-dasharray="5 4"/></svg><span class="fp-lb">Ring for size</span></div></div>
+<div class="card-body">
+  <h3>Triple Mega</h3>
+  <p class="role">Three spits across, built to order</p>
+  <ul class="kitrows"><li><span class="qn">&bull;</span><span>For clubs, fetes and catering</span></li><li><span class="qn">&bull;</span><span>Ring for the kit list and the lead time</span></li></ul>
+</div>
+<div class="card-foot"><span class="price ask">Price on call</span><a class="btn btn-line btn-sm" href="tel:+61429543435">Call</a></div>
+</li></ul>
+</div>
+</section><section class="opt" id="c">
+<div class="wrap">
+  <div class="ohead"><p class="rule">Option C</p><h2>One at a time</h2><p class="sub">Pick a model and only that one shows. Calm, and the kit list gets room to breathe instead of being squeezed.</p></div>
+  <div class="ctabs" role="tablist" aria-label="Models"><button class="ctab" role="tab" aria-selected="true" aria-controls="p-open" id="t-open" data-i="0">Open Souvla</button><button class="ctab" role="tab" aria-selected="false" aria-controls="p-hooded" id="t-hooded" data-i="1">Hooded Souvla</button><button class="ctab" role="tab" aria-selected="false" aria-controls="p-chain" id="t-chain" data-i="2">Large Chain Drive</button><button class="ctab" role="tab" aria-selected="false" aria-controls="p-mega" id="t-mega" data-i="3">Mega Souvla</button><button class="ctab" role="tab" aria-selected="false" aria-controls="p-double" id="t-double" data-i="4">Double Mega</button><button class="ctab" role="tab" aria-selected="false" aria-controls="p-triple" id="t-triple" data-i="5">Triple Mega</button></div><div class="cpanels"><div class="cpanel" id="p-open" role="tabpanel" aria-labelledby="t-open">
+  <div class="cp-left">
+    <p class="role">The starting size</p>
+    <h3>Open Souvla</h3>
+    <p class="cp-size">700 × 400 mm</p>
+    <div class="cp-price"><span class="price"><small>from</small>$649</span></div>
+    <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+  </div>
+  <div class="cp-right">
+    <p class="cp-lb">What comes with it</p>
+    <ul class="kitrows"><li><span class="qn">3</span><span>large skewers</span></li><li><span class="qn">6</span><span>skewer forks</span></li><li><span class="qn">11</span><span>souvlaki skewers</span></li><li><span class="qn">2</span><span>grills</span></li><li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li><li><span class="qn">&bull;</span><span>Geared motor</span></li><li><span class="qn">&bull;</span><span>Speed controller</span></li></ul>
+  </div>
+</div><div class="cpanel" id="p-hooded" role="tabpanel" aria-labelledby="t-hooded" hidden>
+  <div class="cp-left">
+    <p class="role">The same size, with the hood</p>
+    <h3>Hooded Souvla</h3>
+    <p class="cp-size">700 × 400 mm</p>
+    <div class="cp-price"><span class="price"><small>from</small>$849</span></div>
+    <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+  </div>
+  <div class="cp-right">
+    <p class="cp-lb">What comes with it</p>
+    <ul class="kitrows"><li><span class="qn">3</span><span>large skewers</span></li><li><span class="qn">6</span><span>skewer forks</span></li><li><span class="qn">11</span><span>souvlaki skewers</span></li><li><span class="qn">2</span><span>grills</span></li><li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li><li><span class="qn">&bull;</span><span>Geared motor</span></li><li><span class="qn">&bull;</span><span>Speed controller</span></li></ul>
+  </div>
+</div><div class="cpanel" id="p-chain" role="tabpanel" aria-labelledby="t-chain" hidden>
+  <div class="cp-left">
+    <p class="role">The one most people buy</p>
+    <h3>Large Chain Drive</h3>
+    <p class="cp-size">900 × 600 mm</p>
+    <div class="cp-price"><span class="price"><small>from</small>$1099</span></div>
+    <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+  </div>
+  <div class="cp-right">
+    <p class="cp-lb">What comes with it</p>
+    <ul class="kitrows"><li><span class="qn">11</span><span>large skewers</span></li><li><span class="qn">12</span><span>forks</span></li><li><span class="qn">2</span><span>grills</span></li><li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li><li><span class="qn">&bull;</span><span>Large geared motor</span></li></ul>
+  </div>
+</div><div class="cpanel" id="p-mega" role="tabpanel" aria-labelledby="t-mega" hidden>
+  <div class="cp-left">
+    <p class="role">Chain drive with a full rotisserie over it</p>
+    <h3>Mega Souvla</h3>
+    <p class="cp-size">Ring for size</p>
+    <div class="cp-price"><span class="price"><small>from</small>$1399</span></div>
+    <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+  </div>
+  <div class="cp-right">
+    <p class="cp-lb">What comes with it</p>
+    <ul class="kitrows"><li><span class="qn">1</span><span>XL geared motor</span></li><li><span class="qn">1</span><span>geared chain motor</span></li><li><span class="qn">1</span><span>12 mm Mega skewer</span></li><li><span class="qn">2</span><span>speed controllers</span></li><li><span class="qn">11</span><span>8 mm skewers</span></li><li><span class="qn">2</span><span>large forks</span></li><li><span class="qn">12</span><span>skewer forks</span></li><li><span class="qn">2</span><span>grills</span></li><li><span class="qn">2</span><span>yeeros discs</span></li><li><span class="qn">&bull;</span><span>Removable charcoal tray</span></li></ul>
+  </div>
+</div><div class="cpanel" id="p-double" role="tabpanel" aria-labelledby="t-double" hidden>
+  <div class="cp-left">
+    <p class="role">Top of the range</p>
+    <h3>Double Mega</h3>
+    <p class="cp-size">900 × 600 mm</p>
+    <div class="cp-price"><span class="price"><small>from</small>$1699</span></div>
+    <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+  </div>
+  <div class="cp-right">
+    <p class="cp-lb">What comes with it</p>
+    <ul class="kitrows"><li><span class="qn">2</span><span>XL motors</span></li><li><span class="qn">1</span><span>chain motor</span></li><li><span class="qn">3</span><span>speed controllers</span></li><li><span class="qn">2</span><span>XL skewers</span></li><li><span class="qn">4</span><span>large forks</span></li><li><span class="qn">2</span><span>back straps</span></li><li><span class="qn">4</span><span>yeeros discs</span></li><li><span class="qn">11</span><span>chain skewers</span></li><li><span class="qn">12</span><span>chain skewer forks</span></li><li><span class="qn">2</span><span>large grills</span></li></ul>
+  </div>
+</div><div class="cpanel" id="p-triple" role="tabpanel" aria-labelledby="t-triple" hidden>
+  <div class="cp-left">
+    <p class="role">Three spits across, built to order</p>
+    <h3>Triple Mega</h3>
+    <p class="cp-size">Ring for size</p>
+    <div class="cp-price"><span class="price ask">Price on call</span></div>
+    <a class="btn btn-primary" href="tel:+61429543435">Call or text 0429 543 435</a>
+  </div>
+  <div class="cp-right">
+    <p class="cp-lb">What comes with it</p>
+    <ul class="kitrows"><li><span class="qn">&bull;</span><span>For clubs, fetes and catering</span></li><li><span class="qn">&bull;</span><span>Ring for the kit list and the lead time</span></li></ul>
+  </div>
+</div></div>
+</div>
+</section><section class="opt" id="d">
+<div class="wrap">
+  <div class="ohead"><p class="rule">Option D</p><h2>Big price bands</h2><p class="sub">Full width rows with the price at display size, alternating left and right. Bold, and it scrolls like a poster.</p></div>
+  <ul class="bands"><li class="band">
+  <div class="bd-price"><span class="bigp"><small>from</small>$649</span></div>
+  <div class="bd-body">
+    <h3>Open Souvla</h3>
+    <p class="role">The starting size &middot; 700 × 400 mm</p>
+    <ul class="kitline"><li><b>3</b> large skewers</li><li><b>6</b> skewer forks</li><li><b>11</b> souvlaki skewers</li><li><b>2</b> grills</li><li>Removable charcoal tray</li><li>Geared motor</li><li>Speed controller</li></ul>
+  </div>
+</li><li class="band alt">
+  <div class="bd-price"><span class="bigp"><small>from</small>$849</span></div>
+  <div class="bd-body">
+    <h3>Hooded Souvla</h3>
+    <p class="role">The same size, with the hood &middot; 700 × 400 mm</p>
+    <ul class="kitline"><li><b>3</b> large skewers</li><li><b>6</b> skewer forks</li><li><b>11</b> souvlaki skewers</li><li><b>2</b> grills</li><li>Removable charcoal tray</li><li>Geared motor</li><li>Speed controller</li></ul>
+  </div>
+</li><li class="band">
+  <div class="bd-price"><span class="bigp"><small>from</small>$1099</span></div>
+  <div class="bd-body">
+    <h3>Large Chain Drive</h3>
+    <p class="role">The one most people buy &middot; 900 × 600 mm</p>
+    <ul class="kitline"><li><b>11</b> large skewers</li><li><b>12</b> forks</li><li><b>2</b> grills</li><li>Removable charcoal tray</li><li>Large geared motor</li></ul>
+  </div>
+</li><li class="band alt">
+  <div class="bd-price"><span class="bigp"><small>from</small>$1399</span></div>
+  <div class="bd-body">
+    <h3>Mega Souvla</h3>
+    <p class="role">Chain drive with a full rotisserie over it &middot; Ring for size</p>
+    <ul class="kitline"><li><b>1</b> XL geared motor</li><li><b>1</b> geared chain motor</li><li><b>1</b> 12 mm Mega skewer</li><li><b>2</b> speed controllers</li><li><b>11</b> 8 mm skewers</li><li><b>2</b> large forks</li><li><b>12</b> skewer forks</li><li><b>2</b> grills</li><li><b>2</b> yeeros discs</li><li>Removable charcoal tray</li></ul>
+  </div>
+</li><li class="band">
+  <div class="bd-price"><span class="bigp"><small>from</small>$1699</span></div>
+  <div class="bd-body">
+    <h3>Double Mega</h3>
+    <p class="role">Top of the range &middot; 900 × 600 mm</p>
+    <ul class="kitline"><li><b>2</b> XL motors</li><li><b>1</b> chain motor</li><li><b>3</b> speed controllers</li><li><b>2</b> XL skewers</li><li><b>4</b> large forks</li><li><b>2</b> back straps</li><li><b>4</b> yeeros discs</li><li><b>11</b> chain skewers</li><li><b>12</b> chain skewer forks</li><li><b>2</b> large grills</li></ul>
+  </div>
+</li><li class="band alt">
+  <div class="bd-price"><span class="bigp ask">Price on call</span></div>
+  <div class="bd-body">
+    <h3>Triple Mega</h3>
+    <p class="role">Three spits across, built to order &middot; Ring for size</p>
+    <ul class="kitline"><li>For clubs, fetes and catering</li><li>Ring for the kit list and the lead time</li></ul>
+  </div>
+</li></ul>
+</div>
+</section>
+<section class="verdict"><div class="wrap">
+<h2>My pick: B.</h2>
+<p>The cards give every model the same amount of room, the drawn footprint answers the question people actually ring about, and it stacks to one column on a phone without turning into a wall of text. Option A is the one to add underneath it if you want a proper spec comparison as well.</p>
+</div></section>
+<script>
+document.querySelectorAll('.ctab').forEach(t => t.addEventListener('click', () => {
+  const tabs = [...document.querySelectorAll('.ctab')];
+  const panels = [...document.querySelectorAll('.cpanel')];
+  tabs.forEach(o => o.setAttribute('aria-selected', String(o === t)));
+  panels.forEach((p, i) => { p.hidden = i !== +t.dataset.i; });
+}));
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.for === e.target.id));
+}), { threshold: .3 });
+document.querySelectorAll('.opt').forEach(s => io.observe(s));
+</script>
+</body></html>
