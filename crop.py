@@ -54,7 +54,13 @@ def write_png(path, w, rows, ctype):
     open(path, 'wb').write(out)
 
 src, dst, y, hh = sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4])
+x0 = int(sys.argv[5]) if len(sys.argv) > 5 else 0
+ww = int(sys.argv[6]) if len(sys.argv) > 6 else None
 w, h, ch, ctype, rows = read_png(src)
 y = max(0, min(y, h - 1)); hh = min(hh, h - y)
-write_png(dst, w, rows[y:y+hh], ctype)
-print(f'{dst}  {w}x{hh}  from y={y} of {w}x{h}')
+band = rows[y:y+hh]
+x0 = max(0, min(x0, w - 1)); ww = w - x0 if ww is None else min(ww, w - x0)
+if x0 or ww != w:
+    band = [r[x0*ch:(x0+ww)*ch] for r in band]
+write_png(dst, ww, band, ctype)
+print(f'{dst}  {ww}x{hh}  from x={x0} y={y} of {w}x{h}')
