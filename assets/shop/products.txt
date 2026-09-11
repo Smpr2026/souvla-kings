@@ -12,7 +12,7 @@
 # To add a photo: drop it in assets/shop/ and put the filename in the image column
 # addon   optional. The id of an extra offered as a tick box on that product.
 
-souvla-open      | Souvlas | Open Souvla        | 649  | soon | 700 x 400 mm. 3 large skewers, 6 skewer forks, 11 souvlaki skewers, 2 grills, charcoal tray, geared motor, speed controller.
+souvla-open      | Souvlas | Open Souvla        | 649  | open-souvla.jpg | 700 x 400 mm. 3 large skewers, 6 skewer forks, 11 souvlaki skewers, 2 grills, charcoal tray, geared motor, speed controller.
 souvla-hooded    | Souvlas | Hooded Souvla      | 849  | soon | 700 x 400 mm, with the hood. Same kit as the Open Souvla.
 souvla-chain     | Souvlas | Large Chain Drive  | 1099 | ../bbq-1.webp | 900 x 600 mm. 11 large skewers, 12 forks, 2 grills, charcoal tray, large geared motor. | part-riser
 souvla-mega      | Souvlas | Mega Souvla        | 1399 | ../bbq-3.webp | 900 x 600 mm. Chain drive with a full rotisserie over it. XL geared motor and a geared chain motor, 12 mm Mega skewer, 2 speed controllers, 11 x 8 mm skewers, 2 large forks, 12 skewer forks, 2 grills, 2 yeeros discs, removable charcoal tray.

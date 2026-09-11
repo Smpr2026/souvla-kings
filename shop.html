@@ -81,7 +81,7 @@ section{padding-block:clamp(2.6rem,5vw,4.4rem)}
 .machines{display:grid;gap:1px;background:var(--steel);border:1px solid var(--steel)}
 .mach{background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.2rem,3vw,2.6rem);padding:clamp(1.2rem,2.4vw,2rem)}
 .mach-img{background:var(--paper-2);border:1px solid var(--steel);display:grid;place-items:center;padding:.8rem;align-self:start}
-.mach-img img{width:100%;height:auto}
+.mach-img img{max-width:100%;max-height:330px;width:auto;height:auto;margin-inline:auto}
 .mach-img.soon{min-height:190px;color:var(--ink-3)}
 .mach-img.soon span{display:grid;justify-items:center;gap:.6rem}
 .mach-img.soon svg{width:auto;height:54px;opacity:.55}
@@ -212,7 +212,7 @@ section{padding-block:clamp(2.6rem,5vw,4.4rem)}
     </div>
     <div class="machines">
       <article class="mach">
-<div class="mach-img soon"><span><svg viewBox="0 0 140 80" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="18" width="108" height="48" rx="3"/><path d="M16 28h108M16 38h108M16 48h108M16 58h108"/><path d="M44 18v48M70 18v48M96 18v48"/></svg><b>Photo coming</b></span></div>
+<div class="mach-img"><img src="assets/shop/open-souvla.jpg" alt="Open Souvla" loading="lazy" decoding="async"></div>
         <div>
           <h3>Open Souvla</h3>
           <p class="dims">700 x 400 mm</p>
